@@ -33,5 +33,36 @@ module.exports = function (router) {
       res.send(JSON.stringify(resArr));
     });
   });
+
+  router.post("/post/:postId/upVote", function (req, res){
+
+    const postId = req.params.postId;
+    Post.findById(postId, (err, docs) => {
+      Post.updateOne( {_id:postId},
+                      {upVotes: docs.upVotes + 1},
+                      (error,updatedDoc) => {
+                        if(error){console.log(error);}
+                        else{res.send(updatedDoc);}
+                      }
+                    );
+    });
+
+  });
+
+  router.post("/post/:postId/downVote", function (req, res){
+
+    const postId = req.params.postId;
+    Post.findById(postId, (err, docs) => {
+      Post.updateOne( {_id:postId},
+                      {downVotes: docs.downVotes + 1},
+                      (error,updatedDoc) => {
+                        if(error){console.log(error);}
+                        else{res.send(updatedDoc);}
+                      }
+                    );
+    });
+
+  });
+
   return router;
 };

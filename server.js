@@ -3,6 +3,7 @@ var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var router = express.Router();
 var appRoutes = require("./app/routes/api")(router);
+var uiRoutes = require("./app/routes/ui")(router);
 var dbInterface = require("./app/db/dbInterface");
 var path = require("path");
 
@@ -20,9 +21,11 @@ dbInterface.connectMonogDB();
 
 //Here we can redirect calls to UI folder once we include it.
 //Redirect all the request which is not to a valid path to index.html page
-// app.get("*", function (req, res) {
-//   res.sendFile(path.join(__dirname + "/ui/dist/ui/index.html"));
-// });
+app.use(express.static(path.join(__dirname,'ui/public')));
+app.set('views', path.join(__dirname, 'ui/pages'));
+app.set('view engine', 'ejs');  // Set the view engine to ejs
+
+app.use("", uiRoutes);
 
 //Log to inform the start of sever and port details
 app.listen(port, function () {
