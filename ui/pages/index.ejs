@@ -65,13 +65,13 @@
 
                     </div>
                     <div class="card-footer">
-                        <form>
+                        <form id="add_question">
                             <div class="form-group">
                                 <label for="question">Post your question</label>
                                 <textarea class="form-control" id="question" rows="5"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
+                        <button type="submit" class="btn btn-primary" onclick="addQuestion();">Submit</button>
                     </div>
                 </div>
 
@@ -80,8 +80,11 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="/js/jquery/jquery.slim.min.js"></script>
+    <script src="/js/jquery/jquery.min.js"></script>
     <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <!-- Page level custom scripts -->
+  <script type="module" src="/js/app/index_page.js"></script>
 
 </body>
 
