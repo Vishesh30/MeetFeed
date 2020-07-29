@@ -10,3 +10,10 @@ An Application to Capture Meeting Feed
 The API will be accessible at:-
 http://localhost:3000/api/post
 
+
+## UI
+The UI is accessible via http://localhost:3000
+
+## API List
+- 2 new APIs are added to upvote and down vote. This will be required for UI.
+POST Request: http://localhost:3000/api/post/{postId}/upVote
