@@ -1,6 +1,7 @@
 var express = require("express");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
+var cookieParser = require("cookie-parser");
 var router = express.Router();
 var appRoutes = require("./app/routes/api")(router);
 var uiRoutes = require("./app/routes/ui")(router);
@@ -11,6 +12,7 @@ var app = express();
 var port = process.env.port || 3000;
 
 // app.use(morgan("dev"));
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/ui/dist/ui"));

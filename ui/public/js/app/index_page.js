@@ -10,6 +10,16 @@ $(document).ready(function () {
         downVote(postId);
     });
 
+    $('#sort-by-votes').on('click', function () {
+        document.cookie = "sortOrder=votes";
+        location.reload();
+    });
+
+    $('#sort-by-time').on('click', function () {
+        document.cookie = "sortOrder=time";
+        location.reload();
+    });
+
 });
 
 window.addQuestion = function(){
