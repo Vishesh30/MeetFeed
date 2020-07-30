@@ -11,3 +11,11 @@
   height: 810px;
   overflow-y: scroll;
 }
+
+.borderraidus {
+  border-radius: 20px;
+}
+
+.upvotebtn {
+  background-color: #274777
+}
