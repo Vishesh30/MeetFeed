@@ -35,11 +35,11 @@ module.exports = function (router) {
   });
 
   router.post("/post/:postId/upVote", function (req, res) {
-    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress; //await GetUserIP()
+    const ip = req.ip.split(':')[req.ip.split(':').length - 1]
     console.log(ip)
     const postId = req.params.postId;
     Post.findById(postId, (err, docs) => {
-      if (!(docs.voters.findIndex(o => o.ip === ip)) > 0) {   // first upvote
+      if (!((docs.voters.findIndex(o => o._doc.ip === ip)) >= 0)) {   // first upvote
         docs.voters.push(
           { ip: ip, upvote: true, downvote: false })
         Post.updateOne({ _id: postId },
@@ -52,9 +52,8 @@ module.exports = function (router) {
             else { res.send(updatedDoc); }
           }
         );
-      } else if ((docs.voters.findIndex(o => { o.ip === ip && o.downvote === true })) > 0) {   //did user upvote after downvoting
-        docs.voters.push( // find
-          { ip: ip, upvote: true, downvote: false })
+      } else if ((docs.voters.findIndex(o => { return o._doc.ip === ip && o._doc.downvote === true })) >= 0) {   //did user upvote after downvoting
+        docs.voters[docs.voters.findIndex(o => o._doc.ip === ip)] = { ip: ip, upvote: true, downvote: false }
         Post.updateOne({ _id: postId },
           {
             upVotes: docs.upVotes + 1,
@@ -72,10 +71,10 @@ module.exports = function (router) {
   });
 
   router.post("/post/:postId/downVote", function (req, res) {
-    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    const ip = req.ip.split(':')[req.ip.split(':').length - 1]
     const postId = req.params.postId;
     Post.findById(postId, (err, docs) => {
-      if (!(docs.voters.findIndex(o => o.ip === ip)) > 0) {   // first downvote
+      if (!((docs.voters.findIndex(o => o._doc.ip === ip)) >= 0)) {   // first downvote
         docs.voters.push(
           { ip: ip, upvote: false, downvote: true })
         Post.updateOne({ _id: postId },
@@ -88,9 +87,8 @@ module.exports = function (router) {
             else { res.send(updatedDoc); }
           }
         );
-      } else if ((docs.voters.findIndex(o => { o.ip === ip && o.upvote === true })) > 0) {   //did user downvote after upvoting
-        docs.voters.push( //find
-          { ip: ip, upvote: false, downvote: true })
+      } else if ((docs.voters.findIndex(o => { return o._doc.ip === ip && o._doc.upvote === true })) >= 0) {   //did user downvote after upvoting
+        docs.voters[docs.voters.findIndex(o => o._doc.ip === ip)] = { ip: ip, upvote: false, downvote: true }
         Post.updateOne({ _id: postId },
           {
             upVotes: docs.upVotes - 1,
