@@ -12,6 +12,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -56,9 +58,20 @@
                     </div>
                     <div class="card-body">
                         <% postList.forEach(function(post) { %>
-                        <div class="card border-secondary  mb-4 py-3">
+                        <div class="card border-secondary  mb-1 py-1">
                             <div class="card-body">
-                                <%= post.postContent %>
+                                <div class="row">
+                                    <div class="col-md-10"><%= post.postContent %></div>
+                                    <div class="col-md-2 float-right">
+                                        <button type="button" class="btn btn-primary btn-sm upVote-Button" post-id="<%= post._id %>">
+                                            <i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;&nbsp;<%= post.upVotes %>
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-sm downVote-Button" post-id="<%= post._id %>">
+                                            <i class="fa fa-thumbs-o-down"></i>&nbsp;&nbsp;&nbsp;<%= post.downVotes %>
+                                        </button>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                         <% }); %>
