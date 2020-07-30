@@ -5,14 +5,15 @@ module.exports = function (router) {
 
   router.get("", function (req, res) {
 
-    console.log(req.connection.remoteAddress);
     let sortOrder = "votes";
     if(req.cookies){
       sortOrder = req.cookies.sortOrder;
     }
 
+    console.log(req.connection.remoteAddress);console.log(sortOrder);
+
     Post.find((err, postList) => {
-      //console.log(postList);
+      
       if(sortOrder === "votes"){
         postList.sort((f,s) => {
           return (s.upVotes - s.downVotes) - (f.upVotes - f.downVotes);
