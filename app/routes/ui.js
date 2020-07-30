@@ -10,5 +10,9 @@ module.exports = function (router) {
     });
   });
 
+  router.get("/privacy", function (req, res) {
+    res.render("privacy", {});
+  });
+
   return router;
 };
