@@ -66,6 +66,9 @@ module.exports = function (router) {
           }
         );
       }
+      else{
+        res.send({message:"You have alerady voted for this question"});
+      }
     });
 
   });
@@ -100,6 +103,9 @@ module.exports = function (router) {
             else { res.send(updatedDoc); }
           }
         );
+      }
+      else{
+        res.send({message:"You have alerady voted for this question"});
       }
     });
 

@@ -32,7 +32,8 @@ window.addQuestion = function(){
     const post_data = {
         "postContent": form_data.question,
         "upVotes": 0,
-        "downVotes": 0
+        "downVotes": 0,
+        "voters": []
     }
     console.log(post_data);
 

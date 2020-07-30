@@ -70,10 +70,10 @@
                         </div>
                         <div class="col-md-4 float-right">
                             <button type="button" class="btn btn-info btn-sm" id="sort-by-votes">
-                                Sort by Votes
+                                <i class="fa fa-sort-numeric-desc"></i>&nbsp;&nbsp;&nbsp;Sort by Votes
                             </button>
                             <button type="button" class="btn btn-info btn-sm" id="sort-by-time">
-                                Sort by Time
+                                <i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;Sort by Time
                             </button>
                         </div>
 
@@ -113,12 +113,16 @@
                     <div class="card-body">
                         <form id="add_question">
                             <div class="form-group">
-                                <textarea class="form-control" id="question" rows="5"></textarea>
+                                <textarea class="form-control" id="question" rows="7"></textarea>
                             </div>
                         </form>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn submitbtn" onclick="addQuestion();">Submit</button>
+                        <p></p>
+                        <p>
+                            All questions are captured anonymously. No personal data is captured. Feel free to ask anything.
+                        </p>
                     </div>
                 </div>
             </div>

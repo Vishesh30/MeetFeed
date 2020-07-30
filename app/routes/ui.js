@@ -6,7 +6,7 @@ module.exports = function (router) {
   router.get("", function (req, res) {
 
     let sortOrder = "votes";
-    if(req.cookies){
+    if(req.cookies.sortOrder){
       sortOrder = req.cookies.sortOrder;
     }
 
@@ -22,7 +22,7 @@ module.exports = function (router) {
       else{
         // TODO implement sorting by time
         postList.sort((f,s) => {
-          return s.downVotes - f.downVotes;
+          return (new Date(s.commentTime)).getTime() - (new Date(f.commentTime)).getTime();
         });
       }
 
