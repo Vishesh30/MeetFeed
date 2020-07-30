@@ -19,3 +19,36 @@
 .upvotebtn {
   background-color: #274777
 }
+
+.postpage {
+  background-color: #061F2F;
+  color: #d3d4d4;
+}
+
+.post {
+  background: #1f3341;
+  border-left-color: #1488C6;
+  border: 5px, 0px, 0px, 0px;
+  border-left-width: 10px;
+}
+
+.postcontainer {
+  background-color: #0F161E;
+}
+
+.text {
+  color: #1488C6;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.submitbtn {
+  background-color: #1488C6;
+  color: white;
+}
+
+.header {
+  color: #1488C6;
+  font-family: monospace;
+  font-size: 35px;
+}

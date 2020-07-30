@@ -10,7 +10,7 @@ var path = require("path");
 var app = express();
 var port = process.env.port || 3000;
 
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/ui/dist/ui"));
@@ -21,9 +21,9 @@ dbInterface.connectMonogDB();
 
 //Here we can redirect calls to UI folder once we include it.
 //Redirect all the request which is not to a valid path to index.html page
-app.use(express.static(path.join(__dirname,'ui/public')));
-app.set('views', path.join(__dirname, 'ui/pages'));
-app.set('view engine', 'ejs');  // Set the view engine to ejs
+app.use(express.static(path.join(__dirname, "ui/public")));
+app.set("views", path.join(__dirname, "ui/pages"));
+app.set("view engine", "ejs"); // Set the view engine to ejs
 
 app.use("", uiRoutes);
 

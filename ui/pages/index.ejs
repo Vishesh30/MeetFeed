@@ -59,22 +59,22 @@
     </header>
 
     <!-- Page Content -->
-    <div class="container-fluid">
+    <div class="container-fluid postpage">
         <div class="row" id="questions">
             <div class="col-lg-12 text-center">
-                <h1 class="mt-5">Open up... and ask questions..</h1>
+                <h1 class="header">Open up... and ask questions.</h1>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-lg-9">
-                <div class="card shadow mb-4">
+                <div class="card shadow mb-4 postcontainer">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Top Questions</h6>
+                        <h6 class="m-0 text">Top Questions</h6>
                     </div>
                     <div class="card-body scroll">
                         <% postList.forEach(function(post) { %>
-                        <div class="card border-secondary  mb-1 py-1 borderraidus">
+                        <div class="card mb-1 py-1 post">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-10"><%= post.postContent %></div>
@@ -100,9 +100,9 @@
 
             </div>
             <div class="col-lg-3">
-                <div class="card shadow mb-4">
+                <div class="card shadow mb-4 postcontainer">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Post your question</h6>
+                        <h6 class="m-0 text">Post your question</h6>
                     </div>
                     <div class="card-body">
                         <form id="add_question">
@@ -112,7 +112,7 @@
                         </form>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary" onclick="addQuestion();">Submit</button>
+                        <button type="submit" class="btn submitbtn" onclick="addQuestion();">Submit</button>
                     </div>
                 </div>
             </div>
