@@ -5,6 +5,7 @@ var PostsSchema = new Schema({
   postContent: { type: String, lowercase: true, required: true, unique: true },
   upVotes: { type: Number },
   downVotes: { type: Number },
+  commentTime: { type: Date, default: Date.now },
   voters: [
     {
       ip: String,
