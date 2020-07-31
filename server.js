@@ -9,7 +9,7 @@ var dbInterface = require("./app/db/dbInterface");
 var path = require("path");
 
 var app = express();
-var port = process.env.port || 3000;
+var port = process.env.port || 80;
 
 // app.use(morgan("dev"));
 app.use(cookieParser());
