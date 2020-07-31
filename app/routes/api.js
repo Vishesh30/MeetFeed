@@ -111,5 +111,25 @@ module.exports = function (router) {
 
   });
 
+  router.get("/stats", (req,res) => {
+    const stats = {};
+    Post.find((err, docs) => {
+      stats.totalQuestions = docs.length;
+      stats.toalVotesCount = 0;
+      const ip_list = [];
+      docs.forEach((p) => {
+        stats.toalVotesCount += p.voters.length;
+        p.voters.forEach((v) => {
+          ip_list.push(v.ip);
+        });
+        //ip_list.push(p.voters.map((v) => {return v.ip}));
+      });
+      const unique_ips = [...new Set(ip_list)];
+      stats.uniqueVoterCount = unique_ips.length;
+      //stats.uniqueIPList = unique_ips;
+      res.send(stats);
+    });
+  });
+
   return router;
 };

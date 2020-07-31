@@ -10,7 +10,7 @@ module.exports = function (router) {
       sortOrder = req.cookies.sortOrder;
     }
 
-    console.log(req.connection.remoteAddress);console.log(sortOrder);
+    console.log(Date() + "---" + req.connection.remoteAddress + "---" + sortOrder);
 
     Post.find((err, postList) => {
       
