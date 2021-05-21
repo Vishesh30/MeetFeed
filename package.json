@@ -13,17 +13,18 @@
   "author": "Vishesh Agrawal",
   "license": "ISC",
   "dependencies": {
+    "@angular/cli": "8.3.20",
+    "@sap/xsenv": "^1.2.8",
     "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
-    "mongoose": "^5.7.14",
-    "morgan": "^1.9.1",
-    "nodemon": "^2.0.1",
-    "@angular/cli": "8.3.20",
     "googleapi": "1.0.2",
     "googleapis": "46.0.0",
-    "querystringify": "2.1.1",
-    "ejs": "^3.1.3",
-    "cookie-parser": "^1.4.5"
+    "mongoose": "^5.10.16",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.6",
+    "querystringify": "2.1.1"
   }
 }

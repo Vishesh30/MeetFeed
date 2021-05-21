@@ -35,7 +35,7 @@ window.addQuestion = function(){
         "downVotes": 0,
         "voters": []
     }
-    console.log(post_data);
+    //console.log(post_data);
 
     $.ajaxSetup({
         headers: {

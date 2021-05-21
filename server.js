@@ -9,9 +9,10 @@ var dbInterface = require("./app/db/dbInterface");
 var path = require("path");
 
 var app = express();
-var port = process.env.port || 80;
+var port = process.env.port || 8080;
 
 // app.use(morgan("dev"));
+app.set('trust proxy', true);
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

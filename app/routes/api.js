@@ -4,7 +4,7 @@ var request = require("request");
 module.exports = function (router) {
   router.post("/post", function (req, res) {
     Post.find({ _id: req.body._id }, (err, resArr) => {
-      console.log(resArr);
+      //console.log(resArr);
       let post = new Post(req.body);
       if (resArr.length > 0) {
         var query = { _id: req.body._id };
@@ -13,7 +13,7 @@ module.exports = function (router) {
           post,
           { upsert: true, new: true },
           function (err, doc) {
-            console.log(doc);
+            //console.log(doc);
             if (err) return res.send(500, { error: err });
             return res.send(doc);
           }
@@ -29,14 +29,15 @@ module.exports = function (router) {
 
   router.get("/post", function (req, res) {
     Post.find((err, resArr) => {
-      console.log(resArr);
+      //console.log(resArr);
       res.send(JSON.stringify(resArr));
     });
   });
 
   router.post("/post/:postId/upVote", function (req, res) {
-    const ip = req.ip.split(':')[req.ip.split(':').length - 1]
-    console.log(ip)
+    //console.log("===Headers===");console.log(req.headers);console.log("===Headers===");
+    const ip = req.ip.split(':')[req.ip.split(':').length - 1];
+    console.log(ip);
     const postId = req.params.postId;
     Post.findById(postId, (err, docs) => {
       if (!((docs.voters.findIndex(o => o._doc.ip === ip)) >= 0)) {   // first upvote
@@ -109,6 +110,16 @@ module.exports = function (router) {
       }
     });
 
+  });
+
+  router.post("/post/:postId/delete", function (req, res) {
+    const ip = req.ip.split(':')[req.ip.split(':').length - 1]
+    const postId = req.params.postId;
+    Post.deleteOne({ _id: postId }).then(() => {
+      console.log("Post " + postId + " deleted by ip " + ip);
+    }).catch((error) => {
+      console.log(error); // Failure 
+    });
   });
 
   router.get("/stats", (req,res) => {
