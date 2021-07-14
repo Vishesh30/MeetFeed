@@ -1,4 +1,5 @@
 var Post = require("../models/post");
+var Event = require("../models/event");
 var request = require("request");
 
 module.exports = function (router) {

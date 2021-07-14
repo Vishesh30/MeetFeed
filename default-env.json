@@ -1,0 +1,96 @@
+{
+	"VCAP_SERVICES": {
+		"xsuaa": [
+			{
+				"label": "xsuaa",
+				"provider": null,
+				"plan": "application",
+				"name": "meetFeed-xsuaa",
+				"tags": [
+					"xsuaa"
+				],
+				"instance_guid": "579fb63e-e948-4460-a2f5-362354722a9c",
+				"instance_name": "meetFeed-xsuaa",
+				"binding_guid": "85f37ac1-19c9-420a-9ff4-197ac8a77bd3",
+				"binding_name": null,
+				"credentials": {
+					"tenantmode": "dedicated",
+					"sburl": "https://internal-xsuaa.authentication.sap.hana.ondemand.com",
+					"subaccountid": "901a5669-2b9e-46af-bdc4-6b6b646015e1",
+					"credential-type": "instance-secret",
+					"clientid": "sb-meetfeed!t15552",
+					"xsappname": "meetfeed!t15552",
+					"clientsecret": "RXA/7K+LDgHxvnajG0UWVXEuOcU=",
+					"url": "https://byd-pocs.authentication.sap.hana.ondemand.com",
+					"uaadomain": "authentication.sap.hana.ondemand.com",
+					"verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu3738M8yvzX/rR5tjY8Nmy//YvkJtn4Fp4WwnaiJaygKkTahnl/yju9qiEM7G7lN7PQcJE5V4I1/C7tPEoMQ+6Q1sueB/Ow6IvKPDYEkMy7n3neeD57iC8tGeBzqKxy19fCDuZlACIt52TEgJjIoC0MY79L23A2WEYmcunEOsFNkOL8U5sy9CXWPsEQwdpluGIyZZ2rsZJJrWJL6ikry3SW1V+3K+SXk8L37QEpOsW8bShicP0oioLC0ZokICU0kk0pK8FDkRKE8iMZuoy+YN4oO3bGR1dvmMtUZZZCb3S9mj2UJJVBNY6LDl2AiGts21jEzFkbe/IHBnQyIk9BdswIDAQAB-----END PUBLIC KEY-----",
+					"apiurl": "https://api.authentication.sap.hana.ondemand.com",
+					"identityzone": "byd-pocs",
+					"identityzoneid": "901a5669-2b9e-46af-bdc4-6b6b646015e1",
+					"tenantid": "901a5669-2b9e-46af-bdc4-6b6b646015e1",
+					"zoneid": "901a5669-2b9e-46af-bdc4-6b6b646015e1"
+				},
+				"syslog_drain_url": null,
+				"volume_mounts": []
+			}
+		],
+		"mongodb": [
+			{
+				"label": "mongodb",
+				"provider": null,
+				"plan": "v4.0-dev",
+				"name": "meetFeed-db",
+				"tags": [
+					"mongodb",
+					"document"
+				],
+				"instance_guid": "55491d28-f525-4d81-81df-e20774af801c",
+				"instance_name": "meetFeed-db",
+				"binding_guid": "41d8f9c9-cc64-4df2-b3cc-13975fdd8342",
+				"binding_name": null,
+				"credentials": {
+					"hostname": "10.11.241.19",
+					"ports": {
+						"27017/tcp": "46563",
+						"28017/tcp": "35265"
+					},
+					"port": "46563",
+					"username": "nIJFkopvLUZL2M9u",
+					"password": "F-Kot-kJ5ArdwCkQ",
+					"dbname": "uuxXD49Tsvm3gNx5",
+					"uri": "mongodb://nIJFkopvLUZL2M9u:F-Kot-kJ5ArdwCkQ@10.11.241.19:46563/uuxXD49Tsvm3gNx5",
+					"end_points": [
+						{
+							"network_id": "SF",
+							"host": "10.11.241.19",
+							"port": "46563"
+						}
+					]
+				},
+				"syslog_drain_url": null,
+				"volume_mounts": []
+			}
+		]
+	}
+,
+	"VCAP_APPLICATION": {
+		"cf_api": "https://api.cf.sap.hana.ondemand.com",
+		"limits": {
+			"fds": 32768
+		},
+		"application_name": "meetfeed",
+		"application_uris": [
+			"meetfeed.cfapps.sap.hana.ondemand.com"
+		],
+		"name": "meetfeed",
+		"space_name": "poc-space",
+		"space_id": "d007feae-0c1f-47ff-a4af-65a2bc1320f7",
+		"organization_id": "addba48d-bd71-4957-8f37-87546e220ddc",
+		"organization_name": "ByD_Int_Global_Account_byd-pocs",
+		"uris": [
+			"meetfeed.cfapps.sap.hana.ondemand.com"
+		],
+		"users": null,
+		"application_id": "cbaf7df6-5b86-48fc-bc9b-98bde97a9ad8"
+	}
+}

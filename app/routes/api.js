@@ -1,13 +1,30 @@
 var Post = require("../models/post");
+var Event = require("../models/event");
 var request = require("request");
 
 module.exports = function (router) {
-  router.post("/post", function (req, res) {
-    Post.find({ _id: req.body._id }, (err, resArr) => {
+  router.post("/event", function (req, res) {
+    Event.find({ _id: req.body._id }, (err, resArr) => {
+      let event = new Event(req.body);
+        event.save(function (err, doc) {
+          if (err) res.send(err);
+          else res.send(doc);
+        });
+      });
+  });
+
+  router.get("/event", function (req, res) {
+    Event.find((err, resArr) => {
+      res.send(JSON.stringify(resArr));
+    });
+  });
+  
+  router.post("/event/:eventId/post", function (req, res) {
+    Post.find({ _id: req.body._id, eventId: req.params.eventId }, (err, resArr) => {
       //console.log(resArr);
       let post = new Post(req.body);
       if (resArr.length > 0) {
-        var query = { _id: req.body._id };
+        var query = { _id: req.body._id, eventId:req.params.eventId };
         Post.findByIdAndUpdate(
           query,
           post,
@@ -27,23 +44,23 @@ module.exports = function (router) {
     });
   });
 
-  router.get("/post", function (req, res) {
-    Post.find((err, resArr) => {
+  router.get("/event/:eventId/post", function (req, res) {
+    Post.find({eventId: req.params.eventId},(err, resArr) => {
       //console.log(resArr);
       res.send(JSON.stringify(resArr));
     });
   });
 
-  router.post("/post/:postId/upVote", function (req, res) {
+  router.post("/event/:eventId/post/:postId/upVote", function (req, res) {
     //console.log("===Headers===");console.log(req.headers);console.log("===Headers===");
     const ip = req.ip.split(':')[req.ip.split(':').length - 1];
     console.log(ip);
     const postId = req.params.postId;
-    Post.findById(postId, (err, docs) => {
+    Post.findOne({_id: postId, eventId: req.params.eventId}, (err, docs) => {
       if (!((docs.voters.findIndex(o => o._doc.ip === ip)) >= 0)) {   // first upvote
         docs.voters.push(
           { ip: ip, upvote: true, downvote: false })
-        Post.updateOne({ _id: postId },
+        Post.updateOne({ _id: postId , eventId: req.params.eventId},
           {
             upVotes: docs.upVotes + 1,
             voters: docs.voters
@@ -55,7 +72,7 @@ module.exports = function (router) {
         );
       } else if ((docs.voters.findIndex(o => { return o._doc.ip === ip && o._doc.downvote === true })) >= 0) {   //did user upvote after downvoting
         docs.voters[docs.voters.findIndex(o => o._doc.ip === ip)] = { ip: ip, upvote: true, downvote: false }
-        Post.updateOne({ _id: postId },
+        Post.updateOne({ _id: postId, eventId: req.params.eventId },
           {
             upVotes: docs.upVotes + 1,
             downVotes: docs.downVotes - 1,
@@ -74,14 +91,14 @@ module.exports = function (router) {
 
   });
 
-  router.post("/post/:postId/downVote", function (req, res) {
+  router.post("/event/:eventId/post/:postId/downVote", function (req, res) {
     const ip = req.ip.split(':')[req.ip.split(':').length - 1]
     const postId = req.params.postId;
-    Post.findById(postId, (err, docs) => {
+    Post.findOne({_id: postId, eventId: req.params.eventId}, (err, docs) => {
       if (!((docs.voters.findIndex(o => o._doc.ip === ip)) >= 0)) {   // first downvote
         docs.voters.push(
           { ip: ip, upvote: false, downvote: true })
-        Post.updateOne({ _id: postId },
+        Post.updateOne({ _id: postId, eventId: req.params.eventId },
           {
             downVotes: docs.downVotes + 1,
             voters: docs.voters
@@ -93,7 +110,7 @@ module.exports = function (router) {
         );
       } else if ((docs.voters.findIndex(o => { return o._doc.ip === ip && o._doc.upvote === true })) >= 0) {   //did user downvote after upvoting
         docs.voters[docs.voters.findIndex(o => o._doc.ip === ip)] = { ip: ip, upvote: false, downvote: true }
-        Post.updateOne({ _id: postId },
+        Post.updateOne({ _id: postId, eventId: req.params.eventId },
           {
             upVotes: docs.upVotes - 1,
             downVotes: docs.downVotes + 1,
@@ -112,10 +129,10 @@ module.exports = function (router) {
 
   });
 
-  router.post("/post/:postId/delete", function (req, res) {
+  router.post("/event/:eventId/post/:postId/delete", function (req, res) {
     const ip = req.ip.split(':')[req.ip.split(':').length - 1]
     const postId = req.params.postId;
-    Post.deleteOne({ _id: postId }).then(() => {
+    Post.deleteOne({ _id: postId, eventId: req.params.eventId }).then(() => {
       console.log("Post " + postId + " deleted by ip " + ip);
     }).catch((error) => {
       console.log(error); // Failure 
