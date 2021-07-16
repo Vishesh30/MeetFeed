@@ -1,8 +1,9 @@
 ---
 applications:
-- name: anonymous-feedback
+- name: meetfeed
   path: .
   memory: 256M
   disk_quota: 256M
   services:
-    - ahm-db
+    - meetFeed-db
+    - meetFeed-xsuaa

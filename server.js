@@ -9,7 +9,7 @@ var dbInterface = require("./app/db/dbInterface");
 var path = require("path");
 
 var app = express();
-var port = process.env.port || 8000;
+var port = process.env.port || 8080;
 
 // app.use(morgan("dev"));
 app.set('trust proxy', true);
@@ -29,6 +29,7 @@ app.set("views", path.join(__dirname, "ui/pages"));
 app.set("view engine", "ejs"); // Set the view engine to ejs
 
 app.use("/ui", uiRoutes);
+app.use("", uiRoutes);
 
 //Log to inform the start of sever and port details
 app.listen(port, function () {
