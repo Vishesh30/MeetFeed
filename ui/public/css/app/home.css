@@ -5,6 +5,10 @@
 
   }
 
+  .navBar{
+    background-color: #0F161E;
+  }
+
   .homepage {
     background-color: #061F2F;
     color: #d3d4d4;
@@ -15,6 +19,10 @@
       margin-top: 15%;
      /* margin-left: 20%;  */
 
+  }
+
+  .navbar{
+    background-color: #0F161E;
   }
 
   .post-content{

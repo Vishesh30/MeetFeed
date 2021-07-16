@@ -59,7 +59,7 @@ function upVote(postId){
 
     console.log(postId);
     let eventId = $('#variableJSON').text().replace(/\s/g, '');
-    let url = window.location.origin + "/api/event/" + eventId + "/post" + postId + "/upVote";
+    let url = window.location.origin + "/api/event/" + eventId + "/post/" + postId + "/upVote";
     $.post(url)
         .done(function () {
             location.reload(); //alert("upvote done... reload page");
@@ -75,7 +75,7 @@ function downVote(postId){
 
     console.log(postId);
     let eventId = $('#variableJSON').text().replace(/\s/g, '');
-    let url = window.location.origin + "/api/event/" + eventId + "/post" + postId + "/downVote";
+    let url = window.location.origin + "/api/event/" + eventId + "/post/" + postId + "/downVote";
     $.post(url)
         .done(function () {
             location.reload(); //alert("downVote done... reload page");

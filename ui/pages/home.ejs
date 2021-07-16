@@ -21,7 +21,7 @@
 <body class="homepage">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand-lg navbar-dark static-top">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="/img/sme.png" width="30" height="30" alt="">
@@ -55,12 +55,11 @@
                             <div class="row card-body">
                                 <div class="row card-body col-md-10"><%= event.eventName %></div>
                                 <div class="col-md-2 float-right">
-                                    <!-- <button type="button"
-                                        class="btn btn-primary"
-                                        event-id="<%= event._id %>">
+                                    <button type="button"
+                                        class="btn btn-primary join"
+                                        data-id="<%= event._id %>">
                                         Join
-                                    </button> -->
-                                    <a id="createEvent" href="#" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Primary link</a>
+                                    </button>
                                 </div>
                             </div>
                         <!-- </div> -->
@@ -75,28 +74,15 @@
             <div>                 
                 <h1 class="header eventfont ">Start Your Event</h1>
                 <br>
-                <!-- <form action="/showposts" method="post">
-                        <input type="text" name="eventName" placeholder="Enter Event Name..." required>
-                        <input type="submit" class="btn btn-primary" value="Start">
-                </form> -->
                 <input id="eventName" type="text" name="eventName" placeholder="Enter Event Name..." required>
                 <button class="btn btn-primary" onClick = "login(event)"> Start </button>
             </div>
         </div>
     </div>
 
-    <!-- Page Content -->
-
-        <br>
-
-    <!-- Bootstrap core JavaScript -->
     <script src="/js/jquery/jquery.min.js"></script>
     <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="/js/app/home.js"></script>
-
-    <!-- <script>
-        document.forms.createEvent.action = "/event" +  eventId + "/posts";
-    </script> -->
 
 </body>
 

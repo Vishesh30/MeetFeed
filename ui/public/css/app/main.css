@@ -17,7 +17,11 @@
 }
 
 .upvotebtn {
-  background-color: #274777
+  background-color: #1488C6
+}
+
+.navbar{
+  background-color: #0F161E;
 }
 
 .postpage {
@@ -40,6 +44,7 @@
   color: #1488C6;
   font-size: larger;
   font-weight: bolder;
+  font-family: cursive;
 }
 
 .submitbtn {
@@ -49,10 +54,18 @@
 
 .header {
   color: #1488C6;
-  font-family: monospace;
+  font-family: cursive;
   font-size: 35px;
 }
 
 .post-content{
   white-space: pre-wrap;
+}
+
+.btn-info{
+  background-color: #1488C6;
+}
+
+.infotext{
+  font-family: fangsong
 }

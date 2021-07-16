@@ -21,3 +21,7 @@ const login = async e => {
 
     window.location.href = '/ui/event/' + dataz._id + "/showposts"
 }
+
+$('button.join').click(function() {
+        window.location.href = '/ui/event/' + this.dataset.id + "/showposts"
+});
