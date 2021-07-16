@@ -4,12 +4,12 @@ var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var router = express.Router();
 var appRoutes = require("./app/routes/api")(router);
-var uiRoutes = require("./app/routes/ui")(router);
+var uiRoutes = require("./ui/routes/uiRoute")(router);
 var dbInterface = require("./app/db/dbInterface");
 var path = require("path");
 
 var app = express();
-var port = process.env.port || 8080;
+var port = process.env.port || 8000;
 
 // app.use(morgan("dev"));
 app.set('trust proxy', true);
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "ui/public")));
 app.set("views", path.join(__dirname, "ui/pages"));
 app.set("view engine", "ejs"); // Set the view engine to ejs
 
-app.use("", uiRoutes);
+app.use("/ui", uiRoutes);
 
 //Log to inform the start of sever and port details
 app.listen(port, function () {

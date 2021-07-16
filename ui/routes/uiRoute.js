@@ -1,11 +1,18 @@
-var Post = require("../models/post");
-var Event = require("../models/event");
-var request = require("request");
+var Post = require("../../app/models/post");
+const axios = require("axios");
+
 
 module.exports = function (router) {
 
-  router.get("", function (req, res) {
+  router.get("", async function (req, res) { 
+    let url = 'http://'+ req.headers.host + '/api/event';
+    xdata = await axios.get(url);
+    res.render("home",{eventList: xdata.data});
+  });
 
+  router.get("/event/:eventId/showposts", async function (req, res) {
+    
+    //getPosts
     let sortOrder = "votes";
     if(req.cookies.sortOrder){
       sortOrder = req.cookies.sortOrder;
@@ -13,7 +20,9 @@ module.exports = function (router) {
 
     console.log(Date() + "---" + req.ip + "---" + req.connection.remoteAddress + "---" + sortOrder);
 
-    Post.find((err, postList) => {
+    let eventId = req.params.eventId;
+
+    Post.find({eventId: eventId},(err, postList) => {
       
       if(sortOrder === "votes"){
         postList.sort((f,s) => {
@@ -27,7 +36,7 @@ module.exports = function (router) {
         });
       }
 
-      res.render("index", {postList: postList});
+      res.render("index", {postList: postList, event: eventId});
 
     });
   });

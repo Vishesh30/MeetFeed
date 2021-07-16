@@ -1,0 +1,39 @@
+.eventcontainer {
+    background-color: #0F161E;
+    margin-top: 5%;
+    margin-left: 5%;
+
+  }
+
+  .homepage {
+    background-color: #061F2F;
+    color: #d3d4d4;
+  }
+
+  .startevent{
+      /* margin-left: 30%; */
+      margin-top: 15%;
+     /* margin-left: 20%;  */
+
+  }
+
+  .post-content{
+      color: #f8fafc;
+      background-color: #0F161E;
+      font-size: 1.2em;
+  }
+
+  .card-body{
+    background-color: #0F161E;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .eventfont{
+      font-family: cursive;
+  }
+
+  .card{
+    border-top: 0px;
+    border-bottom: 1px solid rgb(105, 165, 204);
+  }

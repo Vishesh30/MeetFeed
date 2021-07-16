@@ -90,11 +90,11 @@
                                     <div class="col-md-2 float-right">
                                         <button type="button"
                                             class="btn btn-primary btn-sm upVote-Button borderraidus upvotebtn"
-                                            post-id="<%= post._id %>">
+                                            event-id="<%= event._id %>" post-id="<%= post._id %>">
                                             <i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;&nbsp;<%= post.upVotes %>
                                         </button>
                                         <button type="button" class="btn btn-danger btn-sm downVote-Button borderraidus"
-                                            post-id="<%= post._id %>">
+                                        event-id="<%= event._id %>" post-id="<%= post._id %>">
                                             <i class="fa fa-thumbs-o-down"></i>&nbsp;&nbsp;&nbsp;<%= post.downVotes %>
                                         </button>
                                     </div>
@@ -138,7 +138,10 @@
     <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script type="module" src="/js/app/index_page.js"></script>
+    <script type="module" src="/js/app/index.js"></script>
+    <span id='variableJSON' hidden>
+        <%= event %>
+    </span>
 
 </body>
 

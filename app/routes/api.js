@@ -2,15 +2,13 @@ var Post = require("../models/post");
 var Event = require("../models/event");
 var request = require("request");
 
-module.exports = function (router) {
-  router.post("/event", function (req, res) {
-    Event.find({ _id: req.body._id }, (err, resArr) => {
+module.exports =  function (router) {
+  router.post("/event",  function (req, res) {
       let event = new Event(req.body);
-        event.save(function (err, doc) {
+         event.save(function (err, doc) {
           if (err) res.send(err);
           else res.send(doc);
         });
-      });
   });
 
   router.get("/event", function (req, res) {
@@ -20,10 +18,13 @@ module.exports = function (router) {
   });
   
   router.post("/event/:eventId/post", function (req, res) {
-    Post.find({ _id: req.body._id, eventId: req.params.eventId }, (err, resArr) => {
+    let eventId = req.params.eventId.replace(/\s/g, '')
+    Post.find({ _id: req.body._id, eventId: eventId }, (err, resArr) => {
       //console.log(resArr);
-      let post = new Post(req.body);
-      if (resArr.length > 0) {
+      let postData = req.body;
+      postData.eventId = eventId;
+      let post = new Post(postData);
+      if (resArr != undefined && resArr.length > 0) {
         var query = { _id: req.body._id, eventId:req.params.eventId };
         Post.findByIdAndUpdate(
           query,
@@ -46,6 +47,13 @@ module.exports = function (router) {
 
   router.get("/event/:eventId/post", function (req, res) {
     Post.find({eventId: req.params.eventId},(err, resArr) => {
+      //console.log(resArr);
+      res.send(JSON.stringify(resArr));
+    });
+  });
+
+  router.get("/event/:eventId/post/:postId", function (req, res) {
+    Post.find({_id: req.params.postId,eventId: req.params.eventId},(err, resArr) => {
       //console.log(resArr);
       res.send(JSON.stringify(resArr));
     });
@@ -139,9 +147,9 @@ module.exports = function (router) {
     });
   });
 
-  router.get("/stats", (req,res) => {
+  router.get("/stats/:eventId", (req,res) => {
     const stats = {};
-    Post.find((err, docs) => {
+    Post.find({eventId: req.params.eventId},(err, docs) => {
       stats.totalQuestions = docs.length;
       stats.toalVotesCount = 0;
       const ip_list = [];

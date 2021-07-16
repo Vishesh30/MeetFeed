@@ -28,8 +28,8 @@ window.addQuestion = function(){
     inputs.each(function () {
         form_data[this.id] = $(this).val();
     });
-
-    const post_data = {
+    let eventId = $('#variableJSON').text().replace(/\s/g, '');
+    const post_data = { 
         "postContent": form_data.question,
         "upVotes": 0,
         "downVotes": 0,
@@ -42,7 +42,8 @@ window.addQuestion = function(){
             'Content-Type': 'application/json'
         }
     });
-    $.post("api/post",
+    let url = window.location.origin + "/api/event/" + eventId + "/post";
+    $.post(url,
         JSON.stringify(post_data))
         .done(function () {
             location.reload(); //alert("question added... reload page");
@@ -57,7 +58,9 @@ window.addQuestion = function(){
 function upVote(postId){
 
     console.log(postId);
-    $.post("api/post/" + postId + "/upVote")
+    let eventId = $('#variableJSON').text().replace(/\s/g, '');
+    let url = window.location.origin + "/api/event/" + eventId + "/post" + postId + "/upVote";
+    $.post(url)
         .done(function () {
             location.reload(); //alert("upvote done... reload page");
         })
@@ -71,7 +74,9 @@ function upVote(postId){
 function downVote(postId){
 
     console.log(postId);
-    $.post("api/post/" + postId + "/downVote")
+    let eventId = $('#variableJSON').text().replace(/\s/g, '');
+    let url = window.location.origin + "/api/event/" + eventId + "/post" + postId + "/downVote";
+    $.post(url)
         .done(function () {
             location.reload(); //alert("downVote done... reload page");
         })
