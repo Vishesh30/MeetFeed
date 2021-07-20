@@ -2,6 +2,15 @@ _schema-version: "3.1"
 ID: meetfeed
 description: Feedback application
 version: 1.0.1
+parameters:
+  enable-parallel-deployments: true
+
+build-parameters:
+  before-all:
+   - builder: custom
+     commands:
+      - npm install --production
+
 resources:
   - name: meetfeed-uaa
     type: org.cloudfoundry.managed-service
@@ -14,6 +23,7 @@ resources:
     parameters:
       service-plan: v4.0-dev
       service: mongodb
+
 modules:
   - name: meetfeed-srv
     type: nodejs
@@ -42,5 +52,3 @@ modules:
           name: srv
           url: ~{url}
           forwardAuthToken: true
-parameters:
-    global-rolecollection-appendix: ""
