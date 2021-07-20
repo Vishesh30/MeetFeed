@@ -1,4 +1,47 @@
 {
-    "xsappname": "meetfeed",
-    "tenant-mode": "dedicated"
-  }
+  "xsappname": "meetfeed",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "Token Exchange"
+    },
+    {
+      "name": "$XSAPPNAME.Participant",
+      "description": "Can participate in events"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Manage all events"
+    }
+  ],
+
+  "role-templates": [
+    {
+      "name": "TOKEN_EXCHANGE",
+      "scope-references": ["uaa.user"]
+    },
+    {
+      "name": "Participant",
+      "description": "Can participate in events",
+      "scope-references": ["$XSAPPNAME.Participant"]
+    },
+    {
+      "name": "Admin",
+      "description": "Manage all events",
+      "scope-references": ["$XSAPPNAME.Participant", "$XSAPPNAME.Admin"]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "EventParticipant",
+      "description": "Event Participant",
+      "role-template-references": ["$XSAPPNAME.Participant"]
+    },
+    {
+      "name": "EventAdmin",
+      "description": "Event Admin",
+      "role-template-references": ["$XSAPPNAME.Admin"]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "meetfeed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "mta:deploy": "cf deploy ./meetfeed_1.0.1.mtar -f --version-rule ALL -e mtaextension.yaml"
+  },
+  "keywords": [
+    "MEAN",
+    "STACK"
+  ],
+  "author": "Vishesh Agrawal",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "8.3.20",
+    "@sap/xsenv": "",
+    "axios": "^0.21.1",
+    "bcrypt": "^3.0.7",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "googleapi": "1.0.2",
+    "googleapis": "46.0.0",
+    "mongoose": "^5.10.16",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.6",
+    "querystringify": "2.1.1",
+    "passport": "",
+    "@sap/xssec": "",
+    "cfenv": ""
+  }
+}

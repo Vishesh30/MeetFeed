@@ -1,9 +1,0 @@
----
-applications:
-- name: meetfeed
-  path: .
-  memory: 256M
-  disk_quota: 256M
-  services:
-    - meetFeed-db
-    - meetFeed-xsuaa

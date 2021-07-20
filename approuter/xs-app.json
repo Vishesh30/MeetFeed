@@ -1,0 +1,10 @@
+{
+    "routes": [
+        {
+          "source": "/(.*)",
+          "authenticationType": "xsuaa",
+          "scope": "uaa.user",
+          "destination": "srv"
+        }
+      ]
+  }

@@ -1,0 +1,2569 @@
+#2.0#2021 07 20 09:51:10.404#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.startEvent#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-14###
+[XS2StartProcessListener] Operation ID: 03172899-e940-11eb-86b4-eeee0a91ab4a#
+
+#2.0#2021 07 20 09:51:10.420#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.startEvent#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-14###
+[XS2StartProcessListener] Process environment: {
+  "PLATFORM" : "{\n  \"name\": \"CLOUD-FOUNDRY\",\n  \"module-types\": [\n    { \"name\": \"custom\" },\n    { \"name\": \"javascript.nodejs\" },\n    { \"name\": \"java\", \"parameters\": { \"buildpack\": \"sap_java_buildpack\" }},\n    { \"name\": \"java.tomcat\", \"parameters\": { \"buildpack\": \"sap_java_buildpack\" }, \"properties\": { \"TARGET_RUNTIME\": \"tomcat\" }},\n    { \"name\": \"java.tomee\",  \"parameters\": { \"buildpack\": \"sap_java_buildpack\" }, \"properties\": { \"TARGET_RUNTIME\": \"tomee\" }},\n    { \"name\": \"com.sap.xs.hdi-dynamic\", \"parameters\": { \"buildpack\": \"nodejs_buildpack\" }},\n    { \"name\": \"com.sap.xs.hdi\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"com.sap.xs.hdi-zdm\", \"parameters\": { \"zdm-mode\": true, \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1, \"HDI_DEPLOY_MODE\": \"ZDM\" }},\n    { \"name\": \"com.sap.portal.site-content\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:Deployment of site content to .* done.*\", \"failure-marker\": \"STDERR:Deployment of site content to .* failed.*\", \"stop-app\": true, \"check-deploy-id\": true, \"dependency-type\": \"hard\", \"health-check-type\": \"none\" }},\n    { \"name\": \"com.sap.portal.content\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"com.sap.xs.dwf\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:The deployment of DWF content to .* container finished successfully .*\", \"failure-marker\": \"STDERR:The deployment of DWF content to .* container failed .*\", \"stop-app\": true, \"check-deploy-id\": true, \"dependency-type\": \"hard\", \"health-check-type\": \"none\" }},\n    { \"name\": \"business-logging\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:Deployment of content deployer done.\", \"failure-marker\": \"STDERR:Deployment of content deployer failed.\", \"stop-app\": true, \"health-check-type\": \"none\" }},\n    { \"name\": \"com.sap.business-logging.content\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"com.sap.html5.application-content\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:Deployment of html5 application content done.*\", \"failure-marker\": \"STDERR:Deployment of html5 application content failed.*\", \"stop-app\": true, \"check-deploy-id\": true, \"dependency-type\": \"hard\", \"health-check-type\": \"none\" }}, \n    { \"name\": \"com.sap.html5.application.content\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"staticfile\", \"parameters\": { \"buildpack\": \"staticfile_buildpack\" }},\n    { \"name\": \"ruby\", \"parameters\": { \"buildpack\": \"ruby_buildpack\" }},\n    { \"name\": \"nodejs\", \"parameters\": { \"buildpack\": \"nodejs_buildpack\" }},\n    { \"name\": \"go\", \"parameters\": { \"buildpack\": \"go_buildpack\" }},\n    { \"name\": \"python\", \"parameters\": { \"buildpack\": \"python_buildpack\" }},\n    { \"name\": \"php\", \"parameters\": { \"buildpack\": \"php_buildpack\" }},\n    { \"name\": \"binary\", \"parameters\": { \"buildpack\": \"binary_buildpack\" }},\n    { \"name\": \"dotnet_core\", \"parameters\": { \"buildpack\": \"dotnet_core_buildpack\" }},\n    { \"name\": \"application\" },\n    { \"name\": \"com.sap.application.content\" },\n    { \"name\": \"com.sap.integration\" },\n    { \"name\": \"com.sap.api.management\" }\n  ],\n  \"resource-types\": [\n    { \"name\": \"com.sap.xs.hdi-container\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"hdi-shared\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.hana-sbss\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"sbss\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.hana-schema\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"schema\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.hana-securestore\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"securestore\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.managed-hdi-container\", \"parameters\": { \"service\": \"managed-hana\", \"service-plan\": \"hdi-shared\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.managed-hana-schema\", \"parameters\": { \"service\": \"managed-hana\", \"service-plan\": \"schema\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.managed-hana-securestore\", \"parameters\": { \"service\": \"managed-hana\", \"service-plan\": \"securestore\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.job-scheduler\", \"parameters\": { \"service\": \"jobscheduler\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.fs\", \"parameters\": { \"service\": \"fs-storage\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-space\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-devuser\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-application\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-broker\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"broker\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.application-logs\", \"parameters\": { \"service\": \"application-logs\", \"service-plan\": \"lite\", \"skip-service-updates\": { \"parameters\": true, \"plan\": true }, \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.portal.site-host\", \"parameters\": { \"service\": \"portal-services\", \"service-plan\": \"site-host\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.portal.site-content\", \"parameters\": { \"service\": \"portal-services\", \"service-plan\": \"site-content\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.dwf-edw-client\", \"parameters\": { \"service\": \"dwf\", \"service-plan\": \"edw-client\", \"type\": \"managed-service\"}},\n    { \"name\": \"com.sap.xs.auditlog\", \"parameters\": { \"service\": \"auditlog\", \"service-plan\": \"standard\", \"skip-service-updates\": { \"parameters\": true, \"plan\": true }, \"type\": \"managed-service\" }},\n    { \"name\": \"auditlog\", \"parameters\": { \"service\": \"auditlog\", \"service-plan\": \"standard\", \"skip-service-updates\": { \"parameters\": true, \"plan\": true }, \"type\": \"managed-service\" }},\n    { \"name\": \"org.mongodb\", \"parameters\": { \"service\": \"mongodb\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"mongodb\", \"parameters\": { \"service\": \"mongodb\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"org.postgresql\", \"parameters\": { \"service\": \"postgresql\", \"service-plan\": \"v9.4-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"postgresql\", \"parameters\": { \"service\": \"postgresql\", \"service-plan\": \"v9.4-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.rabbitmq\", \"parameters\": { \"service\": \"rabbitmq\", \"service-plan\": \"v3.6-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"rabbitmq\", \"parameters\": { \"service\": \"rabbitmq\", \"service-plan\": \"v3.6-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"io.redis\", \"parameters\": { \"service\": \"redis\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"redis\", \"parameters\": { \"service\": \"redis\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.influxdb\", \"parameters\": { \"service\": \"influxdb\", \"service-plan\": \"v0.13-container\", \"type\": \"managed-service\" }},\n    { \"name\": \"influxdb\", \"parameters\": { \"service\": \"influxdb\", \"service-plan\": \"v0.13-container\", \"type\": \"managed-service\" }},\n    { \"name\": \"org.cloudfoundry.user-provided-service\", \"parameters\": { \"type\": \"user-provided-service\" }},\n    { \"name\": \"org.cloudfoundry.managed-service\", \"parameters\": { \"type\": \"managed-service\" }},\n    { \"name\": \"org.cloudfoundry.existing-service\", \"parameters\": { \"type\": \"existing-service\" }},\n    { \"name\": \"org.cloudfoundry.existing-service-key\", \"parameters\": { \"type\": \"existing-service-key\" }},\n    { \"name\": \"mta-provided\", \"parameters\": { \"type\": \"mta-provides-dependency\" }},\n    { \"name\": \"configuration\", \"parameters\": { \"type\": \"configuration\" }},\n    { \"name\": \"autoscaler\", \"parameters\": { \"service\": \"autoscaler\", \"service-plan\": \"lite\", \"skip-service-updates\": { \"parameters\": true, \"plan\": true }, \"type\": \"managed-service\" }},\n    { \"name\": \"application-logs\", \"parameters\": { \"service\": \"application-logs\", \"service-plan\": \"lite\", \"skip-service-updates\": { \"parameters\": true, \"plan\": true }, \"type\": \"managed-service\" }},\n    { \"name\": \"connectivity\", \"parameters\": { \"service\": \"connectivity\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"feature-flags\", \"parameters\": { \"service\": \"feature-flags\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"metering\", \"parameters\": { \"service\": \"metering\", \"service-plan\": \"standard\", \"type\": \"managed-service\" }},\n    { \"name\": \"ml-foundation-services\", \"parameters\": { \"service\": \"ml-foundation-services\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"objectstore\", \"parameters\": { \"service\": \"objectstore\", \"service-plan\": \"s3-standard\", \"type\": \"managed-service\" }},\n    { \"name\": \"destination\", \"parameters\": { \"service\": \"destination\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }}\n  ]\n}\n",
+  "SKIP_SSL_VALIDATION" : "false",
+  "CONTROLLER_CLIENT_THREAD_POOL_SIZE" : "64",
+  "DB_TYPE" : "POSTGRESQL",
+  "FLOWABLE_JOB_EXECUTOR_MAX_THREADS" : "64",
+  "XS_TYPE" : "CF",
+  "VERSION" : "1.125.0",
+  "BASIC_AUTH_ENABLED" : "true",
+  "CONTROLLER_CLIENT_CONNECTION_POOL_SIZE" : "192",
+  "FLOWABLE_JOB_EXECUTOR_QUEUE_CAPACITY" : "4",
+  "GLOBAL_AUDITOR_USER" : "provisioned_user_xsa_deploy-serviceDSglobalAuditorUser",
+  "FLOWABLE_JOB_EXECUTOR_CORE_THREADS" : "32"
+}#
+
+#2.0#2021 07 20 09:51:10.420#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.startEvent#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-14###
+[XS2StartProcessListener] Current user: vishesh.agrawal@sap.com#
+
+#2.0#2021 07 20 09:51:10.420#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.startEvent#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-14###
+[XS2StartProcessListener] Client space: poc-space#
+
+#2.0#2021 07 20 09:51:10.420#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.startEvent#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-14###
+[XS2StartProcessListener] Client organization: ByD_Int_Global_Account_byd-pocs#
+
+#2.0#2021 07 20 09:51:10.420#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.startEvent#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-14###
+[XS2StartProcessListener] Process variables: {
+  "abortOnError" : false,
+  "mtaId" : "meetfeed",
+  "keepFiles" : false,
+  "versionRule" : "ALL",
+  "verifyArchiveSignature" : false,
+  "mtaExtDescriptorId" : "082d1157-75ca-42ea-b121-857bf2eab327",
+  "noFailOnMissingPermissions" : false,
+  "deleteServiceBrokers" : false,
+  "appArchiveId" : "6b1f4757-689e-435c-84ac-c2b5c39d2766",
+  "gitUri" : "",
+  "deleteServiceKeys" : "********",
+  "noRestartSubscribedApps" : false,
+  "noStart" : false,
+  "deleteServices" : false
+}#
+
+#2.0#2021 07 20 09:51:10.472#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.validateParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7122###
+[ValidateDeployParametersStep] Executing task "validateParametersTask" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:10.473#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.validateParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7122###
+[ValidateDeployParametersStep] Validating parameters...#
+
+#2.0#2021 07 20 09:51:10.475#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.validateParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7122###
+[ValidateDeployParametersStep] Deploying in org "ByD_Int_Global_Account_byd-pocs" and space "poc-space"#
+
+#2.0#2021 07 20 09:51:10.480#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.validateParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7122###
+[ValidateDeployParametersStep] Parameters validated#
+
+#2.0#2021 07 20 09:51:10.481#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.validateParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7122###
+Step "Validate Parameters" finished#
+
+#2.0#2021 07 20 09:51:10.518#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.deleteRemainingFileParts#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7123###
+[DeleteRemainingFileParts] Executing task "deleteRemainingFileParts" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:10.521#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.deleteRemainingFileParts#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7123###
+Step "Delete Remaining File Parts" finished#
+
+#2.0#2021 07 20 09:51:10.557#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processArchiveTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7124###
+[XS2ProcessMtaArchiveStep] Executing task "processArchiveTask" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:10.559#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processArchiveTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7124###
+[XS2ProcessMtaArchiveStep] Processing MTA archive...#
+
+#2.0#2021 07 20 09:51:10.559#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processArchiveTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7124###
+[XS2ProcessMtaArchiveStep] MTA Archive ID: 6b1f4757-689e-435c-84ac-c2b5c39d2766#
+
+#2.0#2021 07 20 09:51:10.649#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processArchiveTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7124###
+[XS2ProcessMtaArchiveStep] MTA Archive Modules: [meetfeed-approuter, meetfeed-srv]#
+
+#2.0#2021 07 20 09:51:10.650#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processArchiveTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7124###
+[XS2ProcessMtaArchiveStep] MTA Archive Requires: []#
+
+#2.0#2021 07 20 09:51:10.650#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processArchiveTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7124###
+[XS2ProcessMtaArchiveStep] MTA Archive Resources: [meetfeed-uaa]#
+
+#2.0#2021 07 20 09:51:10.659#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processArchiveTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7124###
+[XS2ProcessMtaArchiveStep] MTA archive processed#
+
+#2.0#2021 07 20 09:51:10.660#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processArchiveTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7124###
+Step "Process Archive" finished#
+
+#2.0#2021 07 20 09:51:10.705#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processExtensionDescriptorsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7125###
+[ProcessMtaExtensionDescriptorsStep] Executing task "processExtensionDescriptorsTask" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:10.707#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processExtensionDescriptorsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7125###
+[ProcessMtaExtensionDescriptorsStep] Processing MTA extension descriptors...#
+
+#2.0#2021 07 20 09:51:10.757#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processExtensionDescriptorsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7125###
+[ProcessMtaExtensionDescriptorsStep] Extension descriptors: [ {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "meetfeed.extension",
+  "parentId" : "meetfeed",
+  "modules" : [ ],
+  "resources" : [ ],
+  "parameters" : {
+    "global-rolecollection-appendix" : ""
+  }
+} ]#
+
+#2.0#2021 07 20 09:51:10.757#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processExtensionDescriptorsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7125###
+[ProcessMtaExtensionDescriptorsStep] MTA extension descriptors processed#
+
+#2.0#2021 07 20 09:51:10.758#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processExtensionDescriptorsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7125###
+Step "Process Extension Descriptors" finished#
+
+#2.0#2021 07 20 09:51:10.800#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectSchemaVersionTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7126###
+[DetectMtaSchemaVersionStep] Executing task "detectSchemaVersionTask" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:10.802#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectSchemaVersionTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7126###
+[DetectMtaSchemaVersionStep] Detecting MTA major schema version...#
+
+#2.0#2021 07 20 09:51:10.804#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectSchemaVersionTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7126###
+[DetectMtaSchemaVersionStep] Detected MTA schema version: "3"#
+
+#2.0#2021 07 20 09:51:10.811#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectSchemaVersionTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7126###
+Step "Detect Schema Version" finished#
+
+#2.0#2021 07 20 09:51:10.850#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.mergeDescriptorsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7127###
+[MergeDescriptorsStep] Executing task "mergeDescriptorsTask" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:10.851#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.mergeDescriptorsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7127###
+[MergeDescriptorsStep] Validating and merging descriptors...#
+
+#2.0#2021 07 20 09:51:10.853#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.mergeDescriptorsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7127###
+[MergeDescriptorsStep] Merged deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "meetfeed",
+  "version" : "1.0.1",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-srv",
+    "type" : "javascript.nodejs",
+    "path" : "meetfeed-srv",
+    "properties" : { },
+    "parameters" : {
+      "disk-quota" : "512M",
+      "memory" : "256M"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-api",
+      "isPublic" : false,
+      "properties" : {
+        "url" : "${default-url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-approuter",
+    "type" : "javascript.nodejs",
+    "path" : "meetfeed-approuter",
+    "properties" : { },
+    "parameters" : {
+      "disk-quota" : "256M",
+      "memory" : "128M"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-api",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "srv",
+        "forwardAuthToken" : "********",
+        "url" : "~{url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-approuter",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-uaa",
+    "type" : "org.cloudfoundry.managed-service",
+    "properties" : { },
+    "parameters" : {
+      "path" : "./xs-security.json",
+      "service-plan" : "application",
+      "type" : "managed-service",
+      "service" : "xsuaa"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-db",
+    "type" : "org.cloudfoundry.managed-service",
+    "properties" : { },
+    "parameters" : {
+      "service-plan" : "v4.0-dev",
+      "type" : "managed-service",
+      "service" : "mongodb"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "global-rolecollection-appendix" : ""
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2021 07 20 09:51:10.855#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.mergeDescriptorsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7127###
+[MergeDescriptorsStep] Descriptors validated and merged#
+
+#2.0#2021 07 20 09:51:10.856#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.mergeDescriptorsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7127###
+Step "Merge Descriptors" finished#
+
+#2.0#2021 07 20 09:51:10.896#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectDeployedMtaTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7128###
+[DetectDeployedMtaStep] Executing task "detectDeployedMtaTask" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:10.897#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectDeployedMtaTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7128###
+[DetectDeployedMtaStep] Detecting deployed MTA...#
+
+#2.0#2021 07 20 09:51:11.154#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectDeployedMtaTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7128###
+[DetectDeployedMtaStep] Detecting MTA by id meetfeed and namespace null#
+
+#2.0#2021 07 20 09:51:11.154#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectDeployedMtaTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7128###
+[DetectDeployedMtaStep] Getting applications by metadata label selector "mta_id=72fd1d8d559febe56cd70e9afa379d52,!mta_namespace"...#
+
+#2.0#2021 07 20 09:51:14.818#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectDeployedMtaTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7128###
+[DetectDeployedMtaStep] Getting service instances by metadata label selector "mta_id=72fd1d8d559febe56cd70e9afa379d52,!mta_namespace"...#
+
+#2.0#2021 07 20 09:51:23.680#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectDeployedMtaTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7128###
+[DetectDeployedMtaStep] Deployed MTA: {
+  "metadata" : {
+    "id" : "meetfeed",
+    "version" : "1.0.1"
+  },
+  "applications" : [ {
+    "name" : "meetfeed-srv",
+    "metadata" : {
+      "guid" : "a679193c-bbdf-4a1e-adf1-445ff2baea33",
+      "createdAt" : 1626768309000,
+      "updatedAt" : 1626768503000
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "meetfeed",
+        "mta_version" : "1.0.1",
+        "mta_module" : "{\"name\":\"meetfeed-srv\"}",
+        "mta_module_provided_dependencies" : "[]",
+        "mta_bound_services" : "[\"meetfeed-uaa\",\"meetfeed-db\"]"
+      },
+      "labels" : {
+        "mta_id" : "72fd1d8d559febe56cd70e9afa379d52"
+      }
+    },
+    "memory" : 256,
+    "diskQuota" : 512,
+    "instances" : 1,
+    "runningInstances" : 0,
+    "state" : "STOPPED",
+    "staging" : {
+      "isSshEnabled" : true,
+      "buildpacks" : [ ],
+      "healthCheckType" : "port",
+      "stack" : "cflinuxfs3"
+    },
+    "packageState" : "FAILED",
+    "stagingError" : "Staging error: Start command not specified",
+    "routes" : [ {
+      "guid" : "87d52e32-9759-460e-9e3d-27afc6c19f61",
+      "domain" : "cfapps.sap.hana.ondemand.com",
+      "domainGuid" : "9aa474f9-3f82-4967-a2e1-dfe0cd155064",
+      "host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-srv",
+      "path" : ""
+    } ],
+    "services" : [ "meetfeed-uaa", "meetfeed-db" ],
+    "env" : {
+      "DEPLOY_ATTRIBUTES" : "{\n  \"app-content-digest\" : \"BA03619295E5287181F1F66214FEA1FA\"\n}"
+    },
+    "space" : {
+      "name" : "poc-space",
+      "metadata" : {
+        "guid" : "d007feae-0c1f-47ff-a4af-65a2bc1320f7",
+        "createdAt" : 1596023749000,
+        "updatedAt" : 1618834004000
+      },
+      "organization" : {
+        "name" : "ByD_Int_Global_Account_byd-pocs",
+        "metadata" : {
+          "guid" : "addba48d-bd71-4957-8f37-87546e220ddc",
+          "createdAt" : 1596023505000,
+          "updatedAt" : 1600793889000
+        }
+      }
+    },
+    "moduleName" : "meetfeed-srv",
+    "boundMtaServices" : [ "meetfeed-uaa", "meetfeed-db" ],
+    "providedDependencyNames" : [ ],
+    "productizationState" : "LIVE"
+  } ],
+  "services" : [ {
+    "name" : "meetfeed-uaa",
+    "metadata" : {
+      "guid" : "fd035ecb-3058-4e79-9300-6fb78e1a1db5",
+      "createdAt" : 1626768279000,
+      "updatedAt" : 1626768279000,
+      "url" : "/v2/service_instances/fd035ecb-3058-4e79-9300-6fb78e1a1db5"
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "meetfeed",
+        "mta_version" : "1.0.1",
+        "mta_resource" : "{\"name\":\"meetfeed-uaa\"}"
+      },
+      "labels" : {
+        "mta_id" : "72fd1d8d559febe56cd70e9afa379d52"
+      }
+    },
+    "label" : "xsuaa",
+    "plan" : "application",
+    "credentials" : "********",
+    "tags" : [ ],
+    "type" : "managed_service_instance",
+    "lastOperation" : {
+      "type" : "CREATE",
+      "description" : "",
+      "state" : "SUCCEEDED"
+    },
+    "resourceName" : "meetfeed-uaa"
+  }, {
+    "name" : "meetfeed-db",
+    "metadata" : {
+      "guid" : "9edd10eb-5f3d-430c-aa5c-e15125479aba",
+      "createdAt" : 1626764432000,
+      "updatedAt" : 1626764432000,
+      "url" : "/v2/service_instances/9edd10eb-5f3d-430c-aa5c-e15125479aba"
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "meetfeed",
+        "mta_version" : "1.0.1",
+        "mta_resource" : "{\"name\":\"meetfeed-db\"}"
+      },
+      "labels" : {
+        "mta_id" : "72fd1d8d559febe56cd70e9afa379d52"
+      }
+    },
+    "label" : "mongodb",
+    "plan" : "v4.0-dev",
+    "credentials" : "********",
+    "tags" : [ ],
+    "type" : "managed_service_instance",
+    "lastOperation" : {
+      "type" : "CREATE",
+      "description" : "",
+      "state" : "SUCCEEDED"
+    },
+    "resourceName" : "meetfeed-db"
+  } ]
+}#
+
+#2.0#2021 07 20 09:51:23.680#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectDeployedMtaTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7128###
+[DetectDeployedMtaStep] Detected deployed MTA with namespace "null", ID "meetfeed" and version "1.0.1"#
+
+#2.0#2021 07 20 09:51:23.687#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.detectDeployedMtaTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7128###
+Step "Detect Deployed MTA" finished#
+
+#2.0#2021 07 20 09:51:23.730#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] Executing task "collectSystemParametersTask" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:23.731#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] Collecting system parameters...#
+
+#2.0#2021 07 20 09:51:23.732#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] Getting default domain...#
+
+#2.0#2021 07 20 09:51:24.175#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] Default domain: cfapps.sap.hana.ondemand.com#
+
+#2.0#2021 07 20 09:51:24.176#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] Checking for overwriting read-only parameters for mta with id: "meetfeed"#
+
+#2.0#2021 07 20 09:51:24.176#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] No read-only parameters are overwritten#
+
+#2.0#2021 07 20 09:51:24.194#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] Descriptor with system parameters: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "meetfeed",
+  "version" : "1.0.1",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-srv",
+    "type" : "javascript.nodejs",
+    "path" : "meetfeed-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "meetfeed-srv",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "instances" : "${default-instances}",
+      "default-host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-srv",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "512M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "timestamp" : "20210720095124"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-api",
+      "isPublic" : false,
+      "properties" : {
+        "url" : "${default-url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-approuter",
+    "type" : "javascript.nodejs",
+    "path" : "meetfeed-approuter",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "meetfeed-approuter",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "128M",
+      "default-instances" : 1,
+      "instances" : "${default-instances}",
+      "default-host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "timestamp" : "20210720095124"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-api",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "srv",
+        "forwardAuthToken" : "********",
+        "url" : "~{url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-approuter",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-uaa",
+    "type" : "org.cloudfoundry.managed-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "path" : "./xs-security.json",
+      "service-name" : "${default-service-name}",
+      "service-plan" : "application",
+      "service" : "xsuaa",
+      "generated-user" : "********",
+      "default-xsappname" : "meetfeed-uaa",
+      "type" : "managed-service",
+      "default-service-name" : "meetfeed-uaa",
+      "default-container-name" : "BYD_INT_GLOBAL_ACCOUNT_BYD_POCS_POC_SPACE_MEETFEED_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-db",
+    "type" : "org.cloudfoundry.managed-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "service-plan" : "v4.0-dev",
+      "service" : "mongodb",
+      "generated-user" : "********",
+      "default-xsappname" : "meetfeed-db",
+      "type" : "managed-service",
+      "default-service-name" : "meetfeed-db",
+      "default-container-name" : "BYD_INT_GLOBAL_ACCOUNT_BYD_POCS_POC_SPACE_MEETFEED_DB"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "********",
+    "org-guid" : "addba48d-bd71-4957-8f37-87546e220ddc",
+    "org" : "ByD_Int_Global_Account_byd-pocs",
+    "deploy-target" : "ByD_Int_Global_Account_byd-pocs poc-space",
+    "space" : "poc-space",
+    "xs-api-url" : "https://api.cf.sap.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.sap.hana.ondemand.com",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.sap.hana.ondemand.com",
+    "global-rolecollection-appendix" : "",
+    "xs-auth-url" : "********",
+    "space-guid" : "d007feae-0c1f-47ff-a4af-65a2bc1320f7",
+    "user" : "********",
+    "controller-url" : "https://api.cf.sap.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2021 07 20 09:51:24.197#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] Version rule: ALL#
+
+#2.0#2021 07 20 09:51:24.198#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] Detected new MTA version: "1.0.1"#
+
+#2.0#2021 07 20 09:51:24.203#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] Deployed MTA version: "1.0.1"#
+
+#2.0#2021 07 20 09:51:24.207#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] MTA accepted for deployment#
+
+#2.0#2021 07 20 09:51:24.207#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+[CollectSystemParametersStep] System parameters collected#
+
+#2.0#2021 07 20 09:51:24.208#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.collectSystemParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7148###
+Step "Collect System Parameters" finished#
+
+#2.0#2021 07 20 09:51:24.250#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7150###
+[ProcessDescriptorStep] Executing task "processDescriptorTask" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:24.251#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7150###
+[ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+
+#2.0#2021 07 20 09:51:24.254#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7150###
+[ProcessDescriptorStep] Subscriptions: [ ]#
+
+#2.0#2021 07 20 09:51:24.254#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7150###
+[ProcessDescriptorStep] MTA Modules: [meetfeed-approuter, meetfeed-srv]#
+
+#2.0#2021 07 20 09:51:24.255#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7150###
+[ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "meetfeed",
+  "version" : "1.0.1",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-srv",
+    "type" : "javascript.nodejs",
+    "path" : "meetfeed-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com",
+      "default-app-name" : "meetfeed-srv",
+      "generated-password" : "********",
+      "default-uri" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "instances" : 1,
+      "default-host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-srv",
+      "app-name" : "meetfeed-srv",
+      "protocol" : "https",
+      "disk-quota" : "512M",
+      "domain" : "cfapps.sap.hana.ondemand.com",
+      "host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-srv",
+      "generated-user" : "********",
+      "timestamp" : "20210720095124"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-api",
+      "isPublic" : false,
+      "properties" : {
+        "url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-approuter",
+    "type" : "javascript.nodejs",
+    "path" : "meetfeed-approuter",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter.cfapps.sap.hana.ondemand.com",
+      "default-app-name" : "meetfeed-approuter",
+      "generated-password" : "********",
+      "default-uri" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter.cfapps.sap.hana.ondemand.com",
+      "memory" : "128M",
+      "default-instances" : 1,
+      "instances" : 1,
+      "default-host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter",
+      "app-name" : "meetfeed-approuter",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "cfapps.sap.hana.ondemand.com",
+      "host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter",
+      "generated-user" : "********",
+      "timestamp" : "20210720095124"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-api",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "srv",
+        "forwardAuthToken" : "********",
+        "url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-approuter",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-uaa",
+    "type" : "org.cloudfoundry.managed-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "path" : "./xs-security.json",
+      "service-name" : "meetfeed-uaa",
+      "service-plan" : "application",
+      "service" : "xsuaa",
+      "generated-user" : "********",
+      "default-xsappname" : "meetfeed-uaa",
+      "type" : "managed-service",
+      "default-service-name" : "meetfeed-uaa",
+      "default-container-name" : "BYD_INT_GLOBAL_ACCOUNT_BYD_POCS_POC_SPACE_MEETFEED_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-db",
+    "type" : "org.cloudfoundry.managed-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "meetfeed-db",
+      "service-plan" : "v4.0-dev",
+      "service" : "mongodb",
+      "generated-user" : "********",
+      "default-xsappname" : "meetfeed-db",
+      "type" : "managed-service",
+      "default-service-name" : "meetfeed-db",
+      "default-container-name" : "BYD_INT_GLOBAL_ACCOUNT_BYD_POCS_POC_SPACE_MEETFEED_DB"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "********",
+    "org-guid" : "addba48d-bd71-4957-8f37-87546e220ddc",
+    "org" : "ByD_Int_Global_Account_byd-pocs",
+    "deploy-target" : "ByD_Int_Global_Account_byd-pocs poc-space",
+    "space" : "poc-space",
+    "xs-api-url" : "https://api.cf.sap.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.sap.hana.ondemand.com",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.sap.hana.ondemand.com",
+    "global-rolecollection-appendix" : "",
+    "xs-auth-url" : "********",
+    "space-guid" : "d007feae-0c1f-47ff-a4af-65a2bc1320f7",
+    "user" : "********",
+    "controller-url" : "https://api.cf.sap.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2021 07 20 09:51:24.255#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7150###
+[ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+
+#2.0#2021 07 20 09:51:24.256#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.processDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7150###
+Step "Process Descriptor Step" finished#
+
+#2.0#2021 07 20 09:51:24.302#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7151###
+[BuildCloudDeployModelStep] Executing task "buildDeployModelTask" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:24.304#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7151###
+[BuildCloudDeployModelStep] Building cloud deployment model...#
+
+#2.0#2021 07 20 09:51:24.307#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7151###
+[BuildCloudDeployModelStep] MTA archive modules: [meetfeed-approuter, meetfeed-srv]#
+
+#2.0#2021 07 20 09:51:24.307#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7151###
+[BuildCloudDeployModelStep] Deployed modules: [meetfeed-srv]#
+
+#2.0#2021 07 20 09:51:24.308#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7151###
+[BuildCloudDeployModelStep] MTA modules: [meetfeed-approuter, meetfeed-srv]#
+
+#2.0#2021 07 20 09:51:24.309#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7151###
+[BuildCloudDeployModelStep] Service keys to create: {
+  "meetfeed-db" : [ ],
+  "meetfeed-uaa" : [ ]
+}#
+
+#2.0#2021 07 20 09:51:24.309#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7151###
+[BuildCloudDeployModelStep] Modules to deploy: [{
+  "majorSchemaVersion" : 3,
+  "name" : "meetfeed-srv",
+  "type" : "javascript.nodejs",
+  "path" : "meetfeed-srv",
+  "properties" : { },
+  "parameters" : {
+    "default-url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com",
+    "default-app-name" : "meetfeed-srv",
+    "generated-password" : "********",
+    "default-uri" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com",
+    "memory" : "256M",
+    "default-instances" : 1,
+    "instances" : 1,
+    "default-host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-srv",
+    "app-name" : "meetfeed-srv",
+    "protocol" : "https",
+    "disk-quota" : "512M",
+    "dependency-type" : "soft",
+    "domain" : "cfapps.sap.hana.ondemand.com",
+    "host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-srv",
+    "generated-user" : "********",
+    "timestamp" : "20210720095124"
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-uaa",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-db",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-api",
+    "isPublic" : false,
+    "properties" : {
+      "url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com"
+    },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-srv",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "hooks" : [ ]
+}, {
+  "majorSchemaVersion" : 3,
+  "name" : "meetfeed-approuter",
+  "type" : "javascript.nodejs",
+  "path" : "meetfeed-approuter",
+  "properties" : { },
+  "parameters" : {
+    "default-url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter.cfapps.sap.hana.ondemand.com",
+    "default-app-name" : "meetfeed-approuter",
+    "generated-password" : "********",
+    "default-uri" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter.cfapps.sap.hana.ondemand.com",
+    "memory" : "128M",
+    "default-instances" : 1,
+    "instances" : 1,
+    "default-host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter",
+    "app-name" : "meetfeed-approuter",
+    "protocol" : "https",
+    "disk-quota" : "256M",
+    "dependency-type" : "soft",
+    "domain" : "cfapps.sap.hana.ondemand.com",
+    "host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter",
+    "generated-user" : "********",
+    "timestamp" : "20210720095124"
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-uaa",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-api",
+    "group" : "destinations",
+    "properties" : {
+      "name" : "srv",
+      "forwardAuthToken" : "********",
+      "url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com"
+    },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-approuter",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "hooks" : [ ]
+}]#
+
+#2.0#2021 07 20 09:51:24.310#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7151###
+[BuildCloudDeployModelStep] Custom domains: []#
+
+#2.0#2021 07 20 09:51:24.311#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7151###
+[BuildCloudDeployModelStep] Services to create: [ {
+  "isOptional" : false,
+  "isManaged" : true,
+  "name" : "meetfeed-uaa",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "meetfeed",
+      "mta_version" : "1.0.1",
+      "mta_resource" : "{\"name\":\"meetfeed-uaa\"}"
+    },
+    "labels" : {
+      "mta_id" : "72fd1d8d559febe56cd70e9afa379d52"
+    }
+  },
+  "label" : "xsuaa",
+  "plan" : "application",
+  "credentials" : "********",
+  "tags" : [ ],
+  "type" : "managed_service_instance",
+  "resourceName" : "meetfeed-uaa",
+  "shouldSkipParametersUpdate" : false,
+  "shouldSkipPlanUpdate" : false,
+  "shouldSkipTagsUpdate" : false
+}, {
+  "isOptional" : false,
+  "isManaged" : true,
+  "name" : "meetfeed-db",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "meetfeed",
+      "mta_version" : "1.0.1",
+      "mta_resource" : "{\"name\":\"meetfeed-db\"}"
+    },
+    "labels" : {
+      "mta_id" : "72fd1d8d559febe56cd70e9afa379d52"
+    }
+  },
+  "label" : "mongodb",
+  "plan" : "v4.0-dev",
+  "credentials" : "********",
+  "tags" : [ ],
+  "type" : "managed_service_instance",
+  "resourceName" : "meetfeed-db",
+  "shouldSkipParametersUpdate" : false,
+  "shouldSkipPlanUpdate" : false,
+  "shouldSkipTagsUpdate" : false
+} ]#
+
+#2.0#2021 07 20 09:51:24.311#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7151###
+[BuildCloudDeployModelStep] Cloud deployment model built#
+
+#2.0#2021 07 20 09:51:24.312#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7151###
+Step "Build Deploy Model" finished#
+
+#2.0#2021 07 20 09:51:24.356#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildUndeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7152###
+[BuildCloudUndeployModelStep] Executing task "buildUndeployModelTask" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:24.358#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildUndeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7152###
+[BuildCloudUndeployModelStep] Building cloud undeployment model...#
+
+#2.0#2021 07 20 09:51:24.365#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildUndeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7152###
+[BuildCloudUndeployModelStep] MTA modules: [meetfeed-approuter, meetfeed-srv]#
+
+#2.0#2021 07 20 09:51:24.365#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildUndeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7152###
+[BuildCloudUndeployModelStep] Modules to undeploy: [ ]#
+
+#2.0#2021 07 20 09:51:24.365#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildUndeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7152###
+[BuildCloudUndeployModelStep] Modules that wont be changed: {0}#
+
+#2.0#2021 07 20 09:51:24.367#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildUndeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7152###
+[BuildCloudUndeployModelStep] Subscriptions to delete: [ ]#
+
+#2.0#2021 07 20 09:51:24.368#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildUndeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7152###
+[BuildCloudUndeployModelStep] Cloud services to delete: []#
+
+#2.0#2021 07 20 09:51:24.368#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildUndeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7152###
+[BuildCloudUndeployModelStep] Cloud applications to undeploy: [ ]#
+
+#2.0#2021 07 20 09:51:24.369#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildUndeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7152###
+[BuildCloudUndeployModelStep] Cloud undeployment model built#
+
+#2.0#2021 07 20 09:51:24.370#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildUndeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7152###
+Step "Build Undeploy Model" finished#
+
+#2.0#2021 07 20 09:51:24.413#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.addDomainsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7153###
+[AddDomainsStep] Executing task "addDomainsTask" of process "031728b9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:24.415#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.addDomainsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7153###
+[AddDomainsStep] Custom domains: []#
+
+#2.0#2021 07 20 09:51:24.417#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.addDomainsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7153###
+Step "Add Domains" finished#
+
+#2.0#2021 07 20 09:51:24.515#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.CheckServiceOperationStateTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7157###
+[CheckServiceOperationStateStep] Executing task "CheckServiceOperationStateTask" of process "0b7aadc9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:24.516#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.CheckServiceOperationStateTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7157###
+[CheckServiceOperationStateStep] Getting service instance "meetfeed-uaa"...#
+
+#2.0#2021 07 20 09:51:31.894#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.CheckServiceOperationStateTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7157###
+Step "Check for service operations in Progress" finished#
+
+#2.0#2021 07 20 09:51:25.233#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.CheckServiceOperationStateTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7229###
+[CheckServiceOperationStateStep] Executing task "CheckServiceOperationStateTask" of process "0be53025-e940-11eb-b2d8-eeee0a9f6546"...#
+
+#2.0#2021 07 20 09:51:25.519#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.CheckServiceOperationStateTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7229###
+[CheckServiceOperationStateStep] Getting service instance "meetfeed-db"...#
+
+#2.0#2021 07 20 09:51:32.734#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.CheckServiceOperationStateTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7229###
+Step "Check for service operations in Progress" finished#
+
+#2.0#2021 07 20 09:51:32.771#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7236###
+[DetermineServiceCreateUpdateServiceActionsStep] Executing task "DetermineServiceCreateUpdateActionsTask" of process "0be53025-e940-11eb-b2d8-eeee0a9f6546"...#
+
+#2.0#2021 07 20 09:51:32.773#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7236###
+[DetermineServiceCreateUpdateServiceActionsStep] Processing service "meetfeed-db"...#
+
+#2.0#2021 07 20 09:51:32.778#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7236###
+[DetermineServiceCreateUpdateServiceActionsStep] Getting service instance "meetfeed-db"...#
+
+#2.0#2021 07 20 09:51:39.561#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7236###
+[DetermineServiceCreateUpdateServiceActionsStep] Existing service: {
+  "name" : "meetfeed-db",
+  "metadata" : {
+    "guid" : "9edd10eb-5f3d-430c-aa5c-e15125479aba",
+    "createdAt" : 1626764432000,
+    "updatedAt" : 1626764432000,
+    "url" : "/v2/service_instances/9edd10eb-5f3d-430c-aa5c-e15125479aba"
+  },
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "meetfeed",
+      "mta_version" : "1.0.1",
+      "mta_resource" : "{\"name\":\"meetfeed-db\"}"
+    },
+    "labels" : {
+      "mta_id" : "72fd1d8d559febe56cd70e9afa379d52"
+    }
+  },
+  "label" : "mongodb",
+  "plan" : "v4.0-dev",
+  "credentials" : "********",
+  "tags" : [ ],
+  "type" : "managed_service_instance",
+  "lastOperation" : {
+    "type" : "CREATE",
+    "description" : "",
+    "state" : "SUCCEEDED"
+  }
+}#
+
+#2.0#2021 07 20 09:51:39.562#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7236###
+[DetermineServiceCreateUpdateServiceActionsStep] Getting parameters of service instance "9edd10eb-5f3d-430c-aa5c-e15125479aba"...#
+
+#2.0#2021 07 20 09:51:39.730#Z#WARN#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7236###
+[DetermineServiceCreateUpdateServiceActionsStep] Cannot retrieve service instance parameters of service "meetfeed-db"#
+
+#2.0#2021 07 20 09:51:39.732#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7236###
+Step "Determine update actions" finished#
+
+#2.0#2021 07 20 09:51:31.951#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7165###
+[DetermineServiceCreateUpdateServiceActionsStep] Executing task "DetermineServiceCreateUpdateActionsTask" of process "0b7aadc9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:31.953#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7165###
+[DetermineServiceCreateUpdateServiceActionsStep] Processing service "meetfeed-uaa"...#
+
+#2.0#2021 07 20 09:51:31.958#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7165###
+[DetermineServiceCreateUpdateServiceActionsStep] Getting service instance "meetfeed-uaa"...#
+
+#2.0#2021 07 20 09:51:39.285#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7165###
+[DetermineServiceCreateUpdateServiceActionsStep] Setting service "meetfeed-uaa" parameters from "xs-security.json"#
+
+#2.0#2021 07 20 09:51:39.645#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7165###
+[DetermineServiceCreateUpdateServiceActionsStep] Existing service: {
+  "name" : "meetfeed-uaa",
+  "metadata" : {
+    "guid" : "fd035ecb-3058-4e79-9300-6fb78e1a1db5",
+    "createdAt" : 1626768279000,
+    "updatedAt" : 1626768279000,
+    "url" : "/v2/service_instances/fd035ecb-3058-4e79-9300-6fb78e1a1db5"
+  },
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "meetfeed",
+      "mta_version" : "1.0.1",
+      "mta_resource" : "{\"name\":\"meetfeed-uaa\"}"
+    },
+    "labels" : {
+      "mta_id" : "72fd1d8d559febe56cd70e9afa379d52"
+    }
+  },
+  "label" : "xsuaa",
+  "plan" : "application",
+  "credentials" : "********",
+  "tags" : [ ],
+  "type" : "managed_service_instance",
+  "lastOperation" : {
+    "type" : "CREATE",
+    "description" : "",
+    "state" : "SUCCEEDED"
+  }
+}#
+
+#2.0#2021 07 20 09:51:39.645#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7165###
+[DetermineServiceCreateUpdateServiceActionsStep] Getting parameters of service instance "fd035ecb-3058-4e79-9300-6fb78e1a1db5"...#
+
+#2.0#2021 07 20 09:51:39.858#Z#WARN#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7165###
+[DetermineServiceCreateUpdateServiceActionsStep] Cannot retrieve service instance parameters of service "meetfeed-uaa"#
+
+#2.0#2021 07 20 09:51:39.859#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7165###
+[DetermineServiceCreateUpdateServiceActionsStep] Service parameters should be updated#
+
+#2.0#2021 07 20 09:51:39.859#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7165###
+[DetermineServiceCreateUpdateServiceActionsStep] New parameters: {
+  "role-collections" : [ {
+    "name" : "EventParticipant",
+    "description" : "Event Participant",
+    "role-template-references" : [ "$XSAPPNAME.Participant" ]
+  }, {
+    "name" : "EventAdmin",
+    "description" : "Event Admin",
+    "role-template-references" : [ "$XSAPPNAME.Admin" ]
+  } ],
+  "role-templates" : [ {
+    "name" : "********",
+    "scope-references" : [ "********" ]
+  }, {
+    "name" : "Participant",
+    "description" : "Can participate in events",
+    "scope-references" : [ "$XSAPPNAME.Participant" ]
+  }, {
+    "name" : "Admin",
+    "description" : "Manage all events",
+    "scope-references" : [ "$XSAPPNAME.Participant", "$XSAPPNAME.Admin" ]
+  } ],
+  "scopes" : [ {
+    "name" : "********",
+    "description" : "********"
+  }, {
+    "name" : "$XSAPPNAME.Participant",
+    "description" : "Can participate in events"
+  }, {
+    "name" : "$XSAPPNAME.Admin",
+    "description" : "Manage all events"
+  } ],
+  "tenant-mode" : "dedicated",
+  "xsappname" : "meetfeed"
+}#
+
+#2.0#2021 07 20 09:51:39.860#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.DetermineServiceCreateUpdateActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7165###
+Step "Determine update actions" finished#
+
+#2.0#2021 07 20 09:51:39.915#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7177###
+[UpdateServiceParametersStep] Executing task "UpdateServiceParametersTask" of process "0b7aadc9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:51:39.918#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7177###
+[UpdateServiceParametersStep] Updating service "meetfeed-uaa"...#
+
+#2.0#2021 07 20 09:51:39.923#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7177###
+[UpdateServiceParametersStep] Updating service parameters for service "meetfeed-uaa"...#
+
+#2.0#2021 07 20 09:51:56.257#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7177###
+[UpdateServiceParametersStep] Service "meetfeed-uaa" updated#
+
+#2.0#2021 07 20 09:51:56.257#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7177###
+[UpdateServiceParametersStep] Triggered service operations: {
+  "meetfeed-uaa" : "UPDATE"
+}#
+
+#2.0#2021 07 20 09:51:56.259#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7177###
+Step "Update parameters" finished#
+
+#2.0#2021 07 20 09:52:02.679#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6220###
+[UpdateServiceParametersStep] Executing task "UpdateServiceParametersTask" of process "0b7aadc9-e940-11eb-86b4-eeee0a91ab4a"...#
+
+#2.0#2021 07 20 09:52:02.680#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6220###
+[UpdateServiceParametersStep] Polling service operations...#
+
+#2.0#2021 07 20 09:52:11.707#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6220###
+[UpdateServiceParametersStep] Getting service instance "meetfeed-uaa"...#
+
+#2.0#2021 07 20 09:52:21.530#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6220###
+[UpdateServiceParametersStep] Last operation for service "meetfeed-uaa": {
+  "type" : "UPDATE",
+  "description" : "",
+  "state" : "SUCCEEDED"
+}#
+
+#2.0#2021 07 20 09:52:21.530#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6220###
+[UpdateServiceParametersStep] Service "meetfeed-uaa" updated#
+
+#2.0#2021 07 20 09:52:21.531#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6220###
+[UpdateServiceParametersStep] 1 of 1 done#
+
+#2.0#2021 07 20 09:52:21.536#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6220###
+[UpdateServiceParametersStep] Remaining services to poll: [ ]#
+
+#2.0#2021 07 20 09:52:21.539#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.UpdateServiceParametersTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6220###
+Step "Update parameters" finished#
+
+#2.0#2021 07 20 09:52:21.706#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.prepareModulesDeploymentTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6283###
+[PrepareModulesDeploymentStep] Executing task "prepareModulesDeploymentTask" of process "2d8e2100-e940-11eb-b317-eeee0a8cf7cd"...#
+
+#2.0#2021 07 20 09:52:21.708#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.prepareModulesDeploymentTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6283###
+[PrepareModulesDeploymentStep] Preparing modules deployment...#
+
+#2.0#2021 07 20 09:52:21.715#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.prepareModulesDeploymentTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6283###
+Step "Prepare Modules Deployment" finished#
+
+#2.0#2021 07 20 09:52:21.869#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.reprocessDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6282###
+[ProcessDescriptorStep] Executing task "reprocessDescriptorTask" of process "2da5ef4f-e940-11eb-b317-eeee0a8cf7cd"...#
+
+#2.0#2021 07 20 09:52:21.870#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.reprocessDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6282###
+[ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+
+#2.0#2021 07 20 09:52:21.873#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.reprocessDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6282###
+[ProcessDescriptorStep] Subscriptions: [ ]#
+
+#2.0#2021 07 20 09:52:21.880#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.reprocessDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6282###
+[ProcessDescriptorStep] MTA Modules: [meetfeed-approuter, meetfeed-srv]#
+
+#2.0#2021 07 20 09:52:21.884#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.reprocessDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6282###
+[ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.1.0",
+  "id" : "meetfeed",
+  "version" : "1.0.1",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-srv",
+    "type" : "javascript.nodejs",
+    "path" : "meetfeed-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com",
+      "default-app-name" : "meetfeed-srv",
+      "generated-password" : "********",
+      "default-uri" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "instances" : 1,
+      "default-host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-srv",
+      "app-name" : "meetfeed-srv",
+      "protocol" : "https",
+      "disk-quota" : "512M",
+      "domain" : "cfapps.sap.hana.ondemand.com",
+      "host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-srv",
+      "generated-user" : "********",
+      "timestamp" : "20210720095124"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-api",
+      "isPublic" : false,
+      "properties" : {
+        "url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-approuter",
+    "type" : "javascript.nodejs",
+    "path" : "meetfeed-approuter",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter.cfapps.sap.hana.ondemand.com",
+      "default-app-name" : "meetfeed-approuter",
+      "generated-password" : "********",
+      "default-uri" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter.cfapps.sap.hana.ondemand.com",
+      "memory" : "128M",
+      "default-instances" : 1,
+      "instances" : 1,
+      "default-host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter",
+      "app-name" : "meetfeed-approuter",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "cfapps.sap.hana.ondemand.com",
+      "host" : "byd-int-global-account-byd-pocs-poc-space-meetfeed-approuter",
+      "generated-user" : "********",
+      "timestamp" : "20210720095124"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-api",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "srv",
+        "forwardAuthToken" : "********",
+        "url" : "https://byd-int-global-account-byd-pocs-poc-space-meetfeed-srv.cfapps.sap.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "meetfeed-approuter",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-uaa",
+    "type" : "org.cloudfoundry.managed-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "path" : "./xs-security.json",
+      "service-name" : "meetfeed-uaa",
+      "service-plan" : "application",
+      "service" : "xsuaa",
+      "generated-user" : "********",
+      "default-xsappname" : "meetfeed-uaa",
+      "type" : "managed-service",
+      "default-service-name" : "meetfeed-uaa",
+      "default-container-name" : "BYD_INT_GLOBAL_ACCOUNT_BYD_POCS_POC_SPACE_MEETFEED_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "meetfeed-db",
+    "type" : "org.cloudfoundry.managed-service",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "meetfeed-db",
+      "service-plan" : "v4.0-dev",
+      "service" : "mongodb",
+      "generated-user" : "********",
+      "default-xsappname" : "meetfeed-db",
+      "type" : "managed-service",
+      "default-service-name" : "meetfeed-db",
+      "default-container-name" : "BYD_INT_GLOBAL_ACCOUNT_BYD_POCS_POC_SPACE_MEETFEED_DB"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "********",
+    "org-guid" : "addba48d-bd71-4957-8f37-87546e220ddc",
+    "org" : "ByD_Int_Global_Account_byd-pocs",
+    "deploy-target" : "ByD_Int_Global_Account_byd-pocs poc-space",
+    "space" : "poc-space",
+    "xs-api-url" : "https://api.cf.sap.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.sap.hana.ondemand.com",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.sap.hana.ondemand.com",
+    "global-rolecollection-appendix" : "",
+    "xs-auth-url" : "********",
+    "space-guid" : "d007feae-0c1f-47ff-a4af-65a2bc1320f7",
+    "user" : "********",
+    "controller-url" : "https://api.cf.sap.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2021 07 20 09:52:21.884#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.reprocessDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6282###
+[ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+
+#2.0#2021 07 20 09:52:21.885#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.reprocessDescriptorTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6282###
+Step "Re-Process Descriptor Step" finished#
+
+#2.0#2021 07 20 09:52:21.928#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildApplicationDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[BuildApplicationDeployModelStep] Executing task "buildApplicationDeployModelTask" of process "2da5ef4f-e940-11eb-b317-eeee0a8cf7cd"...#
+
+#2.0#2021 07 20 09:52:21.931#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildApplicationDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[BuildApplicationDeployModelStep] Building cloud deployment model for application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:21.937#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildApplicationDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[BuildApplicationDeployModelStep] No health-check-type is specified. Setting default type: port#
+
+#2.0#2021 07 20 09:52:21.937#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildApplicationDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[BuildApplicationDeployModelStep] Building configuration entries for org ByD_Int_Global_Account_byd-pocs, space poc-space, spaceId d007feae-0c1f-47ff-a4af-65a2bc1320f7 and namespace null!#
+
+#2.0#2021 07 20 09:52:21.938#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildApplicationDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[BuildApplicationDeployModelStep] Configuration entries to publish: [ ]#
+
+#2.0#2021 07 20 09:52:21.939#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildApplicationDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[BuildApplicationDeployModelStep] Cloud deployment model for application built#
+
+#2.0#2021 07 20 09:52:21.940#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.buildApplicationDeployModelTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+Step "Build Application Deploy Model" finished#
+
+#2.0#2021 07 20 09:52:21.992#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.createAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[CreateOrUpdateAppStep] Executing task "createAppTask" of process "2da5ef4f-e940-11eb-b317-eeee0a8cf7cd"...#
+
+#2.0#2021 07 20 09:52:21.993#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.createAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[CreateOrUpdateAppStep] Getting application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:29.349#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.createAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[CreateOrUpdateAppStep] Updating application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:29.355#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.createAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[CreateOrUpdateAppStep] Application "meetfeed-srv" attributes are not modified and will not be updated#
+
+#2.0#2021 07 20 09:52:29.364#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.createAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[CreateOrUpdateAppStep] Application "meetfeed-srv" updated#
+
+#2.0#2021 07 20 09:52:29.365#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.createAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+Step "Create App" finished#
+
+#2.0#2021 07 20 09:52:29.558#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[DetermineApplicationServiceBindingActionsStep] Executing task "determineApplicationServiceBindingActionsTask" of process "323673c2-e940-11eb-b317-eeee0a8cf7cd"...#
+
+#2.0#2021 07 20 09:52:29.559#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[DetermineApplicationServiceBindingActionsStep] Determine bind/unbind operations of application "meetfeed-srv" to service instance "meetfeed-db"#
+
+#2.0#2021 07 20 09:52:29.559#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[DetermineApplicationServiceBindingActionsStep] Getting application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:30.107#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[DetermineApplicationServiceBindingActionsStep] Binding parameters for application "meetfeed-srv": { }#
+
+#2.0#2021 07 20 09:52:30.107#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[DetermineApplicationServiceBindingActionsStep] Check should rebind application "meetfeed-srv" and service instance "meetfeed-db"#
+
+#2.0#2021 07 20 09:52:30.107#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[DetermineApplicationServiceBindingActionsStep] Getting GUID of required service instance "meetfeed-db"...#
+
+#2.0#2021 07 20 09:52:30.261#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[DetermineApplicationServiceBindingActionsStep] Getting binding of service instance "9edd10eb-5f3d-430c-aa5c-e15125479aba" with application "a679193c-bbdf-4a1e-adf1-445ff2baea33"...#
+
+#2.0#2021 07 20 09:52:30.564#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[DetermineApplicationServiceBindingActionsStep] Getting parameters of service binding "4552b8a7-cd4f-4e37-b868-808c3eef1f63"...#
+
+#2.0#2021 07 20 09:52:30.703#Z#WARN#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[DetermineApplicationServiceBindingActionsStep] Cannot retrieve parameters of binding between application "meetfeed-srv" and service instance "meetfeed-db"#
+
+#2.0#2021 07 20 09:52:30.703#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+[DetermineApplicationServiceBindingActionsStep] Calculated binding operations between application "meetfeed-srv" and service instance "meetfeed-db": unbind - true bind - true#
+
+#2.0#2021 07 20 09:52:30.705#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6230###
+Step "Determine Application Service Binding Actions" finished#
+
+#2.0#2021 07 20 09:52:30.752#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.unbindServiceFromApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6291###
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "323673c2-e940-11eb-b317-eeee0a8cf7cd"...#
+
+#2.0#2021 07 20 09:52:30.754#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.unbindServiceFromApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6291###
+[UnbindServiceFromApplicationStep] Unbinding service instance "meetfeed-db" from application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:30.760#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.unbindServiceFromApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6291###
+[UnbindServiceFromApplicationStep] Unbinding application "meetfeed-srv" from service instance "meetfeed-db"...#
+
+#2.0#2021 07 20 09:52:33.148#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.unbindServiceFromApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6291###
+[UnbindServiceFromApplicationStep] Unbinding service instance "meetfeed-db" from application "meetfeed-srv" finished#
+
+#2.0#2021 07 20 09:52:33.149#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.unbindServiceFromApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6291###
+Step "Unbind Service from Application" finished#
+
+#2.0#2021 07 20 09:52:33.196#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.bindServiceToApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6291###
+[BindServiceToApplicationStep] Executing task "bindServiceToApplicationTask" of process "323673c2-e940-11eb-b317-eeee0a8cf7cd"...#
+
+#2.0#2021 07 20 09:52:33.199#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.bindServiceToApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6291###
+[BindServiceToApplicationStep] Binding service instance "meetfeed-db" to application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:33.205#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.bindServiceToApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6291###
+[BindServiceToApplicationStep] Binding service instance "meetfeed-db" to application "meetfeed-srv" with parameters: { }#
+
+#2.0#2021 07 20 09:52:34.452#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.bindServiceToApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6291###
+[BindServiceToApplicationStep] Binding service instance "meetfeed-db" to application "meetfeed-srv" finished#
+
+#2.0#2021 07 20 09:52:34.456#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.bindServiceToApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6291###
+Step "Bind Service to Application" finished#
+
+#2.0#2021 07 20 09:52:29.995#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7654###
+[DetermineApplicationServiceBindingActionsStep] Executing task "determineApplicationServiceBindingActionsTask" of process "32804ddf-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:52:29.996#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7654###
+[DetermineApplicationServiceBindingActionsStep] Determine bind/unbind operations of application "meetfeed-srv" to service instance "meetfeed-uaa"#
+
+#2.0#2021 07 20 09:52:30.381#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7654###
+[DetermineApplicationServiceBindingActionsStep] Getting application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:34.429#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7654###
+[DetermineApplicationServiceBindingActionsStep] Binding parameters for application "meetfeed-srv": { }#
+
+#2.0#2021 07 20 09:52:34.429#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7654###
+[DetermineApplicationServiceBindingActionsStep] Check should rebind application "meetfeed-srv" and service instance "meetfeed-uaa"#
+
+#2.0#2021 07 20 09:52:34.429#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7654###
+[DetermineApplicationServiceBindingActionsStep] Getting GUID of required service instance "meetfeed-uaa"...#
+
+#2.0#2021 07 20 09:52:34.564#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7654###
+[DetermineApplicationServiceBindingActionsStep] Getting binding of service instance "fd035ecb-3058-4e79-9300-6fb78e1a1db5" with application "a679193c-bbdf-4a1e-adf1-445ff2baea33"...#
+
+#2.0#2021 07 20 09:52:34.821#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7654###
+[DetermineApplicationServiceBindingActionsStep] Getting parameters of service binding "b2f8d54e-9772-41fd-96b0-f84eb267921f"...#
+
+#2.0#2021 07 20 09:52:34.905#Z#WARN#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7654###
+[DetermineApplicationServiceBindingActionsStep] Cannot retrieve parameters of binding between application "meetfeed-srv" and service instance "meetfeed-uaa"#
+
+#2.0#2021 07 20 09:52:34.905#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7654###
+[DetermineApplicationServiceBindingActionsStep] Calculated binding operations between application "meetfeed-srv" and service instance "meetfeed-uaa": unbind - true bind - true#
+
+#2.0#2021 07 20 09:52:34.906#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineApplicationServiceBindingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7654###
+Step "Determine Application Service Binding Actions" finished#
+
+#2.0#2021 07 20 09:52:34.933#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.unbindServiceFromApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "32804ddf-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:52:34.935#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.unbindServiceFromApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[UnbindServiceFromApplicationStep] Unbinding service instance "meetfeed-uaa" from application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:34.938#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.unbindServiceFromApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[UnbindServiceFromApplicationStep] Unbinding application "meetfeed-srv" from service instance "meetfeed-uaa"...#
+
+#2.0#2021 07 20 09:52:35.840#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.unbindServiceFromApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[UnbindServiceFromApplicationStep] Unbinding service instance "meetfeed-uaa" from application "meetfeed-srv" finished#
+
+#2.0#2021 07 20 09:52:35.841#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.unbindServiceFromApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+Step "Unbind Service from Application" finished#
+
+#2.0#2021 07 20 09:52:35.866#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.bindServiceToApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[BindServiceToApplicationStep] Executing task "bindServiceToApplicationTask" of process "32804ddf-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:52:35.868#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.bindServiceToApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[BindServiceToApplicationStep] Binding service instance "meetfeed-uaa" to application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:35.871#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.bindServiceToApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[BindServiceToApplicationStep] Binding service instance "meetfeed-uaa" to application "meetfeed-srv" with parameters: { }#
+
+#2.0#2021 07 20 09:52:38.488#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.bindServiceToApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[BindServiceToApplicationStep] Binding service instance "meetfeed-uaa" to application "meetfeed-srv" finished#
+
+#2.0#2021 07 20 09:52:38.489#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.bindServiceToApplicationTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+Step "Bind Service to Application" finished#
+
+#2.0#2021 07 20 09:52:38.577#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineVcapServicesPropertiesChangedTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[DetermineVcapServicesPropertiesChangedStep] Executing task "determineVcapServicesPropertiesChangedTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:52:38.578#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineVcapServicesPropertiesChangedTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[DetermineVcapServicesPropertiesChangedStep] VCAP_SERVICES properties for application "meetfeed-srv" changed: true#
+
+#2.0#2021 07 20 09:52:38.579#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineVcapServicesPropertiesChangedTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+Step "Determine vcap services properties changed" finished#
+
+#2.0#2021 07 20 09:52:38.603#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.updateApplicationMetadataTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[UpdateApplicationMetadataStep] Executing task "updateApplicationMetadataTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:52:38.604#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.updateApplicationMetadataTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[UpdateApplicationMetadataStep] Getting application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:40.965#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.updateApplicationMetadataTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+[UpdateApplicationMetadataStep] Updated metadata of application "meetfeed-srv"#
+
+#2.0#2021 07 20 09:52:40.966#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.updateApplicationMetadataTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7667###
+Step "Update Application Metadata" finished#
+
+#2.0#2021 07 20 09:52:40.995#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7683###
+[UploadAppStep] Executing task "uploadAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:52:40.996#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7683###
+[UploadAppStep] Upload app timeout in seconds: 3,600#
+
+#2.0#2021 07 20 09:52:40.996#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7683###
+[UploadAppStep] Uploading application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:41.433#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7683###
+[UploadAppStep] Getting application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:41.879#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7683###
+[UploadAppStep] Uploading file "meetfeed-srv/data.zip" for application "meetfeed-srv"#
+
+#2.0#2021 07 20 09:52:42.285#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7683###
+[UploadAppStep] Asynchronously uploading binaries for application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:45.775#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7683###
+[UploadAppStep] Started async upload of application "meetfeed-srv"#
+
+#2.0#2021 07 20 09:52:45.779#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7683###
+[UploadAppStep] Updating environment of application "meetfeed-srv"#
+
+#2.0#2021 07 20 09:52:45.883#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########App upload monitor: f00ed35d-3d50-4df9-9239-828475242cef###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2021 07 20 09:52:46.087#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7683###
+Step "Upload App" finished#
+
+#2.0#2021 07 20 09:52:56.778#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7378###
+[UploadAppStep] Executing task "uploadAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:52:56.930#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7378###
+[UploadAppStep] Upload app timeout in seconds: 3,600#
+
+#2.0#2021 07 20 09:52:56.930#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7378###
+[UploadAppStep] Checking upload status of application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:52:56.930#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7378###
+[UploadAppStep] Getting package "f00ed35d-3d50-4df9-9239-828475242cef"...#
+
+#2.0#2021 07 20 09:52:58.154#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7378###
+Step "Upload App" finished#
+
+#2.0#2021 07 20 09:52:51.020#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########App upload monitor: f00ed35d-3d50-4df9-9239-828475242cef###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2021 07 20 09:52:58.748#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########App upload monitor: f00ed35d-3d50-4df9-9239-828475242cef###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2021 07 20 09:53:03.882#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########App upload monitor: f00ed35d-3d50-4df9-9239-828475242cef###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2021 07 20 09:53:09.074#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########App upload monitor: f00ed35d-3d50-4df9-9239-828475242cef###
+[UploadAppStep] Upload status: READY#
+
+#2.0#2021 07 20 09:53:13.401#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6345###
+[UploadAppStep] Executing task "uploadAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:53:13.402#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6345###
+[UploadAppStep] Upload app timeout in seconds: 3,600#
+
+#2.0#2021 07 20 09:53:13.402#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6345###
+[UploadAppStep] Checking upload status of application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:53:13.402#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6345###
+[UploadAppStep] Getting package "f00ed35d-3d50-4df9-9239-828475242cef"...#
+
+#2.0#2021 07 20 09:53:13.523#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6345###
+[UploadAppStep] Application "meetfeed-srv" uploaded#
+
+#2.0#2021 07 20 09:53:13.526#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.uploadAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6345###
+Step "Upload App" finished#
+
+#2.0#2021 07 20 09:53:13.572#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.scaleAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6361###
+[ScaleAppStep] Executing task "scaleAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:53:13.577#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.scaleAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6361###
+[ScaleAppStep] Scaling application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:53:13.577#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.scaleAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6361###
+[ScaleAppStep] Application "meetfeed-srv" scaled#
+
+#2.0#2021 07 20 09:53:13.578#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.scaleAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6361###
+Step "Scale App" finished#
+
+#2.0#2021 07 20 09:53:13.617#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineDesiredStateAchievingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6362###
+[DetermineDesiredStateAchievingActionsStep] Executing task "determineDesiredStateAchievingActionsTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:53:13.619#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineDesiredStateAchievingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6362###
+[DetermineDesiredStateAchievingActionsStep] Getting application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:53:14.062#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineDesiredStateAchievingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6362###
+[DetermineDesiredStateAchievingActionsStep] Current state of application meetfeed-srv: STOPPED#
+
+#2.0#2021 07 20 09:53:14.062#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineDesiredStateAchievingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6362###
+[DetermineDesiredStateAchievingActionsStep] Desired state of application meetfeed-srv: STARTED#
+
+#2.0#2021 07 20 09:53:14.062#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineDesiredStateAchievingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6362###
+[DetermineDesiredStateAchievingActionsStep] Actions that should be executed on application meetfeed-srv: [START, STAGE]#
+
+#2.0#2021 07 20 09:53:14.064#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.determineDesiredStateAchievingActionsTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6362###
+Step "Determine Desired State Achieving Actions" finished#
+
+#2.0#2021 07 20 09:53:14.140#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6363###
+[StageAppStep] Executing task "stageAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:53:14.143#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6363###
+[StageAppStep] Staging application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:53:14.148#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6363###
+[StageAppStep] Creating build for package "f00ed35d-3d50-4df9-9239-828475242cef"...#
+
+#2.0#2021 07 20 09:53:15.409#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6363###
+Step "Stage App" finished#
+
+#2.0#2021 07 20 09:53:23.400#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7759###
+[StageAppStep] Executing task "stageAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:53:23.402#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7759###
+[StageAppStep] Checking status of application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:53:23.402#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7759###
+[StageAppStep] Getting build "099439e5-0976-4acb-8921-6785b22f7109"...#
+
+#2.0#2021 07 20 09:53:28.607#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7759###
+[StageAppStep] Staging status of application "meetfeed-srv": FAILED#
+
+#2.0#2021 07 20 09:53:28.608#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7759###
+[StageAppStep] Getting recent logs of application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:53:28.872#Z#ERROR#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7759###
+[StageAppStep] Error staging application "meetfeed-srv": BuildpackCompileFailed - App staging failed in the buildpack compile phase
+Download the application logs via the dmol command and check them for more information.#
+
+#2.0#2021 07 20 09:53:28.876#Z#ERROR#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7759###
+Exception caught#
+
+org.cloudfoundry.multiapps.common.SLException: A step of the process has failed. Retrying it may solve the issue.
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.executeInternal(SyncFlowableStep.java:76) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.lambda$execute$0(SyncFlowableStep.java:65) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.core.util.LoggingUtil.logWithCorrelationId(LoggingUtil.java:14) ~[multiapps-controller-core-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.execute(SyncFlowableStep.java:65) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.flowable.engine.impl.delegate.invocation.JavaDelegateInvocation.invoke(JavaDelegateInvocation.java:35) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.delegate.invocation.DelegateInvocation.proceed(DelegateInvocation.java:32) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.delegate.invocation.DefaultDelegateInterceptor.handleInvocation(DefaultDelegateInterceptor.java:26) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.bpmn.behavior.ServiceTaskDelegateExpressionActivityBehavior.execute(ServiceTaskDelegateExpressionActivityBehavior.java:157) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeActivityBehavior(ContinueProcessOperation.java:313) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeSynchronous(ContinueProcessOperation.java:170) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.continueThroughFlowNode(ContinueProcessOperation.java:125) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.run(ContinueProcessOperation.java:88) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.AbstractEngineConfiguration.lambda$new$0(AbstractEngineConfiguration.java:173) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:97) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:81) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:64) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:26) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:83) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.6.0.jar:6.6.0]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) [spring-tx-5.3.7.jar:5.3.7]
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:57) [flowable-spring-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.executeJob(ExecuteAsyncRunnable.java:127) [flowable-job-service-6.6.0.jar:6.6.0]
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.run(ExecuteAsyncRunnable.java:115) [flowable-job-service-6.6.0.jar:6.6.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+#2.0#2021 07 20 09:53:28.884#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7759###
+Step "Stage App" finished#
+
+#2.0#2021 07 20 09:53:33.171#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7402###
+[StageAppStep] Executing task "stageAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:53:33.173#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7402###
+[StageAppStep] Staging application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:53:33.179#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7402###
+[StageAppStep] Creating build for package "f00ed35d-3d50-4df9-9239-828475242cef"...#
+
+#2.0#2021 07 20 09:53:34.148#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7402###
+Step "Stage App" finished#
+
+#2.0#2021 07 20 09:53:43.660#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6407###
+[StageAppStep] Executing task "stageAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:53:43.661#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6407###
+[StageAppStep] Checking status of application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:53:43.661#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6407###
+[StageAppStep] Getting build "7b2cc556-a6c1-4cb4-818d-8b565cbbaa8d"...#
+
+#2.0#2021 07 20 09:53:43.970#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6407###
+[StageAppStep] Staging status of application "meetfeed-srv": FAILED#
+
+#2.0#2021 07 20 09:53:43.970#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6407###
+[StageAppStep] Getting recent logs of application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:53:47.397#Z#ERROR#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6407###
+[StageAppStep] Error staging application "meetfeed-srv": BuildpackCompileFailed - App staging failed in the buildpack compile phase
+Download the application logs via the dmol command and check them for more information.#
+
+#2.0#2021 07 20 09:53:47.403#Z#ERROR#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6407###
+Exception caught#
+
+org.cloudfoundry.multiapps.common.SLException: A step of the process has failed. Retrying it may solve the issue.
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.executeInternal(SyncFlowableStep.java:76) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.lambda$execute$0(SyncFlowableStep.java:65) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.core.util.LoggingUtil.logWithCorrelationId(LoggingUtil.java:14) ~[multiapps-controller-core-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.execute(SyncFlowableStep.java:65) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.flowable.engine.impl.delegate.invocation.JavaDelegateInvocation.invoke(JavaDelegateInvocation.java:35) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.delegate.invocation.DelegateInvocation.proceed(DelegateInvocation.java:32) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.delegate.invocation.DefaultDelegateInterceptor.handleInvocation(DefaultDelegateInterceptor.java:26) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.bpmn.behavior.ServiceTaskDelegateExpressionActivityBehavior.execute(ServiceTaskDelegateExpressionActivityBehavior.java:157) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeActivityBehavior(ContinueProcessOperation.java:313) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeSynchronous(ContinueProcessOperation.java:170) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.continueThroughFlowNode(ContinueProcessOperation.java:125) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.run(ContinueProcessOperation.java:88) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.AbstractEngineConfiguration.lambda$new$0(AbstractEngineConfiguration.java:173) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:97) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:81) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:64) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:26) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:83) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.6.0.jar:6.6.0]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) [spring-tx-5.3.7.jar:5.3.7]
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:57) [flowable-spring-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.executeJob(ExecuteAsyncRunnable.java:127) [flowable-job-service-6.6.0.jar:6.6.0]
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.run(ExecuteAsyncRunnable.java:115) [flowable-job-service-6.6.0.jar:6.6.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+#2.0#2021 07 20 09:53:47.411#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6407###
+Step "Stage App" finished#
+
+#2.0#2021 07 20 09:53:50.843#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7465###
+[StageAppStep] Executing task "stageAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:53:50.846#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7465###
+[StageAppStep] Staging application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:53:50.850#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7465###
+[StageAppStep] Creating build for package "f00ed35d-3d50-4df9-9239-828475242cef"...#
+
+#2.0#2021 07 20 09:53:52.854#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7465###
+Step "Stage App" finished#
+
+#2.0#2021 07 20 09:54:03.742#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7841###
+[StageAppStep] Executing task "stageAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:54:04.041#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7841###
+[StageAppStep] Checking status of application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:54:04.041#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7841###
+[StageAppStep] Getting build "d96aa527-1fe2-4857-b405-411965bea5d6"...#
+
+#2.0#2021 07 20 09:54:04.213#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7841###
+[StageAppStep] Staging status of application "meetfeed-srv": FAILED#
+
+#2.0#2021 07 20 09:54:04.213#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7841###
+[StageAppStep] Getting recent logs of application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:54:09.422#Z#ERROR#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7841###
+[StageAppStep] Error staging application "meetfeed-srv": BuildpackCompileFailed - App staging failed in the buildpack compile phase
+Download the application logs via the dmol command and check them for more information.#
+
+#2.0#2021 07 20 09:54:09.427#Z#ERROR#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7841###
+Exception caught#
+
+org.cloudfoundry.multiapps.common.SLException: A step of the process has failed. Retrying it may solve the issue.
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.executeInternal(SyncFlowableStep.java:76) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.lambda$execute$0(SyncFlowableStep.java:65) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.core.util.LoggingUtil.logWithCorrelationId(LoggingUtil.java:14) ~[multiapps-controller-core-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.execute(SyncFlowableStep.java:65) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.flowable.engine.impl.delegate.invocation.JavaDelegateInvocation.invoke(JavaDelegateInvocation.java:35) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.delegate.invocation.DelegateInvocation.proceed(DelegateInvocation.java:32) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.delegate.invocation.DefaultDelegateInterceptor.handleInvocation(DefaultDelegateInterceptor.java:26) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.bpmn.behavior.ServiceTaskDelegateExpressionActivityBehavior.execute(ServiceTaskDelegateExpressionActivityBehavior.java:157) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeActivityBehavior(ContinueProcessOperation.java:313) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeSynchronous(ContinueProcessOperation.java:170) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.continueThroughFlowNode(ContinueProcessOperation.java:125) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.run(ContinueProcessOperation.java:88) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.AbstractEngineConfiguration.lambda$new$0(AbstractEngineConfiguration.java:173) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:97) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:81) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:64) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:26) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:83) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.6.0.jar:6.6.0]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) [spring-tx-5.3.7.jar:5.3.7]
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:57) [flowable-spring-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.executeJob(ExecuteAsyncRunnable.java:127) [flowable-job-service-6.6.0.jar:6.6.0]
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.run(ExecuteAsyncRunnable.java:115) [flowable-job-service-6.6.0.jar:6.6.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+#2.0#2021 07 20 09:54:09.431#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7841###
+Step "Stage App" finished#
+
+#2.0#2021 07 20 09:54:11.009#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7507###
+[StageAppStep] Executing task "stageAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:54:11.012#Z#INFO#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7507###
+[StageAppStep] Staging application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:54:11.016#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7507###
+[StageAppStep] Creating build for package "f00ed35d-3d50-4df9-9239-828475242cef"...#
+
+#2.0#2021 07 20 09:54:13.494#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7507###
+Step "Stage App" finished#
+
+#2.0#2021 07 20 09:54:23.891#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7558###
+[StageAppStep] Executing task "stageAppTask" of process "379e9371-e940-11eb-a1e2-eeee0a817c50"...#
+
+#2.0#2021 07 20 09:54:23.892#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7558###
+[StageAppStep] Checking status of application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:54:23.892#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7558###
+[StageAppStep] Getting build "b0e8ee31-f132-4143-bf92-c987eb905ef6"...#
+
+#2.0#2021 07 20 09:54:23.990#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7558###
+[StageAppStep] Staging status of application "meetfeed-srv": FAILED#
+
+#2.0#2021 07 20 09:54:23.990#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7558###
+[StageAppStep] Getting recent logs of application "meetfeed-srv"...#
+
+#2.0#2021 07 20 09:54:24.331#Z#ERROR#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7558###
+[StageAppStep] Error staging application "meetfeed-srv": BuildpackCompileFailed - App staging failed in the buildpack compile phase
+Download the application logs via the dmol command and check them for more information.#
+
+#2.0#2021 07 20 09:54:24.336#Z#ERROR#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7558###
+Exception caught#
+
+org.cloudfoundry.multiapps.common.SLException: A step of the process has failed. Retrying it may solve the issue.
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.executeInternal(SyncFlowableStep.java:76) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.lambda$execute$0(SyncFlowableStep.java:65) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.core.util.LoggingUtil.logWithCorrelationId(LoggingUtil.java:14) ~[multiapps-controller-core-1.125.0.jar:?]
+	at org.cloudfoundry.multiapps.controller.process.steps.SyncFlowableStep.execute(SyncFlowableStep.java:65) ~[multiapps-controller-process-1.125.0.jar:?]
+	at org.flowable.engine.impl.delegate.invocation.JavaDelegateInvocation.invoke(JavaDelegateInvocation.java:35) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.delegate.invocation.DelegateInvocation.proceed(DelegateInvocation.java:32) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.delegate.invocation.DefaultDelegateInterceptor.handleInvocation(DefaultDelegateInterceptor.java:26) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.bpmn.behavior.ServiceTaskDelegateExpressionActivityBehavior.execute(ServiceTaskDelegateExpressionActivityBehavior.java:157) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeActivityBehavior(ContinueProcessOperation.java:313) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeSynchronous(ContinueProcessOperation.java:170) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.continueThroughFlowNode(ContinueProcessOperation.java:125) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.run(ContinueProcessOperation.java:88) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.AbstractEngineConfiguration.lambda$new$0(AbstractEngineConfiguration.java:173) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:97) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:81) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:64) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:26) ~[flowable-engine-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:83) ~[flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:57) ~[flowable-spring-common-6.6.0.jar:6.6.0]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) [spring-tx-5.3.7.jar:5.3.7]
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:57) [flowable-spring-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51) [flowable-engine-common-6.6.0.jar:6.6.0]
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.executeJob(ExecuteAsyncRunnable.java:127) [flowable-job-service-6.6.0.jar:6.6.0]
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.run(ExecuteAsyncRunnable.java:115) [flowable-job-service-6.6.0.jar:6.6.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+#2.0#2021 07 20 09:54:24.344#Z#DEBUG#com.sap.cloud.lm.sl.xs2.03172899-e940-11eb-86b4-eeee0a91ab4a.OPERATION.stageAppTask#
+######org.cloudfoundry.multiapps.controller.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7558###
+Step "Stage App" finished#
+

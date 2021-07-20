@@ -15,6 +15,6 @@ var PostsSchema = new Schema({
       downvote: Boolean,
     },
   ],
-});
+},{ timestamps: true });
 
 module.exports = mongoose.model("Post", PostsSchema);

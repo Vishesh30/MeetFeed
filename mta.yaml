@@ -1,0 +1,46 @@
+_schema-version: "3.1"
+ID: meetfeed
+description: Feedback application
+version: 1.0.1
+resources:
+  - name: meetfeed-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+  - name: meetfeed-db
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: v4.0-dev
+      service: mongodb
+modules:
+  - name: meetfeed-srv
+    type: nodejs
+    path: app
+    parameters:
+      memory: 256M
+      disk-quota: 512M
+    provides:
+      - name: meetfeed-api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: meetfeed-uaa
+      - name: meetfeed-db
+  - name: meetfeed-approuter
+    type: nodejs
+    path: approuter
+    parameters:
+      memory: 128M
+      disk-quota: 256M
+    requires:
+      - name: meetfeed-uaa
+      - name: meetfeed-api
+        group: destinations
+        properties:
+          name: srv
+          url: ~{url}
+          forwardAuthToken: true
+parameters:
+    global-rolecollection-appendix: ""

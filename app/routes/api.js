@@ -4,13 +4,17 @@ var request = require("request");
 
 module.exports = function (router) {
   router.post("/event", function (req, res) {
-    let event = new Event(req.body);
-    event.save(function (err, doc) {
-      if (err) res.send(err);
-      else res.send(doc);
-    });
+    var isAuthorized = req.authInfo.checkScope('$XSAPPNAME.Admin');
+    if(!isAuthorized) {
+        res.status(403).send('Forbidden');
+    }else{
+      let event = new Event(req.body);
+      event.save(function (err, doc) {
+        if (err) res.send(err);
+        else res.send(doc);
+      });
+    }
   });
-
   router.get("/event", function (req, res) {
     Event.find((err, resArr) => {
       res.send(JSON.stringify(resArr));

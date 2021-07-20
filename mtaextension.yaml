@@ -1,0 +1,6 @@
+# This is an extension descriptor for enabling multi-tenancy deployment to CF.
+_schema-version: "3.1.0"
+ID: meetfeed.extension
+extends: meetfeed
+parameters:
+    global-rolecollection-appendix: ""
