@@ -28,8 +28,8 @@ const xsenv = require('@sap/xsenv');
 // app.use(morgan("dev"));
 app.set('trust proxy', true);
 app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json()); //Used to parse JSON bodies
+app.use(express.urlencoded({ extended: true })); //Parse URL-encoded bodies
 app.use(express.static(__dirname + "/ui/dist/ui"));
 // app.use.use(express.methodOverride())
 // app.use(eventValidator);
