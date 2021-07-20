@@ -49,6 +49,6 @@ modules:
       - name: meetfeed-api
         group: destinations
         properties:
-          name: srv
+          name: meetfeed-srv-api
           url: ~{url}
           forwardAuthToken: true

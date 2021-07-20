@@ -20,10 +20,10 @@ const { JWTStrategy } = require('@sap/xssec');
 const xsenv = require('@sap/xsenv');
 
 // XSUAA Middleware
-// passport.use(new JWTStrategy(xsenv.getServices({xsuaa:{tag:'xsuaa'}}).xsuaa));
+passport.use(new JWTStrategy(xsenv.getServices({xsuaa:{tag:'xsuaa'}}).xsuaa));
 
-// app.use(passport.initialize());
-// app.use(passport.authenticate('JWT', { session: false }));
+app.use(passport.initialize());
+app.use(passport.authenticate('JWT', { session: false }));
 
 // app.use(morgan("dev"));
 app.set('trust proxy', true);

@@ -5,6 +5,7 @@ var request = require("request");
 module.exports = function (router) {
   router.post("/event", function (req, res) {
     var isAuthorized = req.authInfo.checkScope('$XSAPPNAME.Admin');
+    console.log("isAuthorized Value" + isAuthorized);
     if(!isAuthorized) {
         res.status(403).send('Forbidden');
     }else{

@@ -3,9 +3,15 @@ const axios = require("axios");
 
 module.exports = function (router) {
   router.get("", async function (req, res) {
-    let url = "http://" + req.headers.host + "/api/event";
-    respData = await axios.get(url);
-    res.render("home", { eventList: respData.data });
+    var isAuthorized = req.authInfo.checkScope('$XSAPPNAME.Admin');
+    console.log("isAuthorized Value" + isAuthorized);
+    if(!isAuthorized) {
+        res.status(403).send('Forbidden');
+    }else{
+      let url = "http://" + req.headers.host + "/api/event";
+      respData = await axios.get(url);
+      res.render("home", { eventList: respData.data });
+    }
   });
 
   router.get("/event/:eventId/showposts", async function (req, res) {
