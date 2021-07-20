@@ -4,7 +4,6 @@
           "source": "/.*",
           "authenticationType": "xsuaa",
           "scope": "uaa.user",
-          "target": "/",
           "destination": "meetfeed-srv-api"
         }
       ]
