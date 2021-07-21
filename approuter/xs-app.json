@@ -1,7 +1,7 @@
 {
     "routes": [
         {
-          "source": "/.*",
+          "source": "/api/(.*)",
           "authenticationType": "xsuaa",
           "scope": "uaa.user",
           "destination": "meetfeed-srv-api"

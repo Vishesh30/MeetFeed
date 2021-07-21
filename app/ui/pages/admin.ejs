@@ -14,7 +14,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom page CSS -->
-    <link href="/css/app/home.css" rel="stylesheet">
+    <link href="/css/app/admin.css" rel="stylesheet">
     
 </head>
 
@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                        <a class="nav-link" href="#">Admin
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -43,8 +43,8 @@
         </div>
     </nav>
     <div class="row">
-        <div class="col-lg-8">
-            <div class="card shadow mb-1 eventcontainer ">
+        <div class="col-lg-6">
+            <div class="card shadow mb-1 eventcontainer">
                 <div class="col-md-8 float-left">
                     <h4 class="m-0 text eventfont">On-Going Events</h6>
                 </div>
@@ -54,12 +54,18 @@
                         <!-- <div class="card-body"> -->
                             <div class="row card-body">
                                 <div class="row card-body col-md-10"><%= event.eventName %></div>
-                                <div class="col-md-2 float-right">
+                                <!-- <div class="row card-body col-md-8"></div> -->
+                                <div class=" float-right">
                                     <button type="button"
                                         class="btn btn-primary join"
                                         data-id="<%= event._id %>">
                                         Join
                                     </button>
+                                    <button type="button"
+                                    class="btn btn-danger delete"
+                                    data-id="<%= event._id %>">
+                                    Delete
+                                </button>
                                 </div>
                             </div>
                         <!-- </div> -->
@@ -70,19 +76,19 @@
             </div>
         </div>
 
-        <!-- <div class="col-lg-6 text-center startevent">
+        <div class="col-lg-6 text-center startevent">
             <div>                 
                 <h1 class="header eventfont ">Start Your Event</h1>
                 <br>
                 <input id="eventName" type="text" name="eventName" placeholder="Enter Event Name..." required>
                 <button class="btn btn-primary" onClick = "startEvent(event)"> Start </button>
             </div>
-        </div> -->
+        </div>
     </div>
 
     <script src="/js/jquery/jquery.min.js"></script>
     <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="/js/app/home.js"></script>
+    <script src="/js/app/admin.js"></script>
 
 </body>
 

@@ -9,21 +9,13 @@ var dbInterface = require("./db/dbInterface");
 var path = require("path");
 var eventValidator = require("./middleware/EventValidator");
 var cfenv  = require('cfenv');
-
 var app = express();
 var port = process.env.port || 8080;
-
 var appEnv = cfenv.getAppEnv();
 
-const passport = require('passport');
-const { JWTStrategy } = require('@sap/xssec');
-const xsenv = require('@sap/xsenv');
-
-// XSUAA Middleware
-passport.use(new JWTStrategy(xsenv.getServices({xsuaa:{tag:'xsuaa'}}).xsuaa));
-
-app.use(passport.initialize());
-app.use(passport.authenticate('JWT', { session: false }));
+var JWTStrategy = require('@sap/xssec').JWTStrategy;
+var xsenv = require('@sap/xsenv');
+var passport = require('passport');
 
 // app.use(morgan("dev"));
 app.set('trust proxy', true);
@@ -33,6 +25,10 @@ app.use(express.urlencoded({ extended: true })); //Parse URL-encoded bodies
 app.use(express.static(__dirname + "/ui/dist/ui"));
 // app.use.use(express.methodOverride())
 // app.use(eventValidator);
+// XSUAA Middleware
+passport.use(new JWTStrategy(xsenv.getServices({xsuaa:{tag:'xsuaa'}}).xsuaa));
+app.use(passport.initialize());
+app.use(passport.authenticate('JWT', { session: false }));
 app.use("/api", appRoutes);
 
 //Connect to DB

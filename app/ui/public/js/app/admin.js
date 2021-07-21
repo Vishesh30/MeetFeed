@@ -25,3 +25,24 @@ const startEvent = async (e) => {
 $("button.join").click(function () {
   window.location.href = "/ui/event/" + this.dataset.id + "/showposts";
 });
+
+$("button.delete").click(async function () {
+    console.log("deleting event " + this.dataset.id);
+    const eventId = this.dataset.id;
+    const option = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        redirect: "follow",
+      };
+      const url = "/api/event/" + eventId + "/delete";
+      const response = await fetch(url, option);
+      const data = await response.json();
+      if(data.ok == 1){ 
+        window.location.reload();
+      }else{
+          alert("Unable to Delete Event" + data.error);
+      }
+      
+  });

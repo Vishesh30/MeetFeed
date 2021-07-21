@@ -4,21 +4,28 @@ var request = require("request");
 
 module.exports = function (router) {
   router.post("/event", function (req, res) {
-    var isAuthorized = req.authInfo.checkScope('$XSAPPNAME.Admin');
-    console.log("isAuthorized Value" + isAuthorized);
-    if(!isAuthorized) {
-        res.status(403).send('Forbidden');
-    }else{
+    // var isAuthorized = req.authInfo.checkScope('$XSAPPNAME.Admin');
+    // console.log("isAuthorized Value" + isAuthorized);
+    // if(!isAuthorized) {
+    //     res.status(403).send('Forbidden');
+    // }else{
       let event = new Event(req.body);
       event.save(function (err, doc) {
         if (err) res.send(err);
         else res.send(doc);
       });
-    }
+    // }
   });
   router.get("/event", function (req, res) {
-    Event.find((err, resArr) => {
+    Event.find({isActive: true},(err, resArr) => {
       res.send(JSON.stringify(resArr));
+    });
+  });
+
+  router.post("/event/:eventId/delete", function (req, res) { 
+    Event.updateOne({_id: req.params.eventId },{$set: {isActive: false}}, (err, doc) => {
+      if (err) return res.send(500, { error: err });
+      else res.send(doc);
     });
   });
 
