@@ -17,6 +17,11 @@ var JWTStrategy = require('@sap/xssec').JWTStrategy;
 var xsenv = require('@sap/xsenv');
 var passport = require('passport');
 
+console.log("Reached Index file below passport auth");
+// passport.use(new JWTStrategy(xsenv.getServices({xsuaa:{tag:'xsuaa'}}).xsuaa));
+// app.use(passport.initialize());
+// app.use(passport.authenticate('JWT', { session: false }));
+
 // app.use(morgan("dev"));
 app.set('trust proxy', true);
 app.use(cookieParser());
@@ -26,9 +31,6 @@ app.use(express.static(__dirname + "/ui/dist/ui"));
 // app.use.use(express.methodOverride())
 // app.use(eventValidator);
 // XSUAA Middleware
-passport.use(new JWTStrategy(xsenv.getServices({xsuaa:{tag:'xsuaa'}}).xsuaa));
-app.use(passport.initialize());
-app.use(passport.authenticate('JWT', { session: false }));
 app.use("/api", appRoutes);
 
 //Connect to DB
@@ -42,6 +44,7 @@ app.set("view engine", "ejs"); // Set the view engine to ejs
 
 app.use("/ui", uiRoutes);
 app.use("", uiRoutes);
+app.use("/", uiRoutes);
 
 //Log to inform the start of sever and port details
 app.listen(port, function () {

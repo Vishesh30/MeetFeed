@@ -3,6 +3,7 @@ const axios = require("axios");
 
 module.exports = function (router) {
   router.get("", async function (req, res) {
+    console.log("Reached Ui Home Route");
     // var isAuthorized = req.authInfo.checkScope('$XSAPPNAME.Admin');
     // console.log("isAuthorized Value" + isAuthorized);
     // if(!isAuthorized) {
@@ -15,6 +16,7 @@ module.exports = function (router) {
   });
 
   router.get("/admin", async function (req, res) {
+    console.log("Reached Ui Admin Route");
     // var isAuthorized = req.authInfo.checkScope('$XSAPPNAME.Admin');
     // console.log("isAuthorized Value" + isAuthorized);
     // if(!isAuthorized) {

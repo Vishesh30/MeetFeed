@@ -11,6 +11,14 @@
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/app/index.js",
       "console": "integratedTerminal"
-    }
+    },
+    {
+      "name": "Attach to a Cloud Foundry Instance on Port 9229",
+      "port": 9229,
+      "request": "attach",
+      "type": "node",
+      "localRoot": "${workspacefolder}",
+      "remoteRoot": "/home/vcap/app"
+  }
   ]
 }

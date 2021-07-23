@@ -4,6 +4,7 @@ var request = require("request");
 
 module.exports = function (router) {
   router.post("/event", function (req, res) {
+    console.log("Reached API Event Post Route");
     // var isAuthorized = req.authInfo.checkScope('$XSAPPNAME.Admin');
     // console.log("isAuthorized Value" + isAuthorized);
     // if(!isAuthorized) {
@@ -17,6 +18,7 @@ module.exports = function (router) {
     // }
   });
   router.get("/event", function (req, res) {
+    console.log("Reached API Event Get Route");
     Event.find({isActive: true},(err, resArr) => {
       res.send(JSON.stringify(resArr));
     });
